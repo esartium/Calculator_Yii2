@@ -8,6 +8,94 @@
  * @license https://www.yiiframework.com/license/
  */
 
+    require __DIR__ . '/vendor/autoload.php';
+    require __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
+
+    $base_path = __DIR__.'/runtime/queue.job';
+    $counter = 0;
+    while (true) {
+        $counter++;
+        echo 'текущая итерация: ' . $counter . PHP_EOL;
+        if (file_exists($base_path)) {
+            $data = file_get_contents($base_path);
+            echo $data;
+            unlink($base_path);
+        }
+        sleep(2);
+    }
+    die;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 

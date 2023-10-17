@@ -125,4 +125,27 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionCalculator()
+    {
+        
+        if (empty($_POST) === false) {
+            $base_path = Yii::getAlias('@runtime') . '/queue.job';
+            
+            if (file_exists($base_path) === true) {
+                    unlink($base_path);
+            }
+            foreach ($_POST['CalculationForm'] as $key => $value) {
+                file_put_contents($base_path, "$key = $value" . PHP_EOL, FILE_APPEND);
+            }
+
+
+
+
+
+        }
+        return $this->render('calculator');
+    }
+
 }
+
