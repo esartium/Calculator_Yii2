@@ -10,3 +10,5 @@ use yii\helpers\Html;
     <li><label>тоннаж</label>: <?= Html::encode($model->tonnazh) ?></li>
     <li><label>месяц</label>: <?= Html::encode($model->month) ?></li>
 </ul>
+
+<p>стоимость: <?= Html::encode($model->stoimost) ?></p>
