@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\CalculatorForm;
+use app\models\Raschet;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -126,26 +128,42 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    // public function actionCalculator()
+    // {
+        
+    //     if (empty($_POST) === false) {
+    //         $base_path = Yii::getAlias('@runtime') . '/queue.job';
+            
+    //         if (file_exists($base_path) === true) {
+    //                 unlink($base_path);
+    //         }
+    //         foreach ($_POST['CalculationForm'] as $key => $value) {
+    //             file_put_contents($base_path, "$key = $value" . PHP_EOL, FILE_APPEND);
+    //         }
+    //     }
+
+    //     return $this->render('calculator');
+    // }
+
     public function actionCalculator()
     {
-        
-        if (empty($_POST) === false) {
-            $base_path = Yii::getAlias('@runtime') . '/queue.job';
-            
-            if (file_exists($base_path) === true) {
-                    unlink($base_path);
-            }
-            foreach ($_POST['CalculationForm'] as $key => $value) {
-                file_put_contents($base_path, "$key = $value" . PHP_EOL, FILE_APPEND);
-            }
+        $model = new CalculatorForm();
 
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            // данные в $model удачно проверены
 
-
-
-
+            // делаем что-то полезное с $model ...
+ 
+            return $this->render('calculator-confirm', ['model' => $model]);
+        } else {
+            // либо страница отображается первый раз, либо есть ошибка в данных
+            return $this->render('calculator', ['model' => $model]);
         }
-        return $this->render('calculator');
     }
 
-}
+
+
+        
+} //главная скобка
+
 

@@ -1,22 +1,15 @@
 <?php
+use app\models\CalculatorForm;
 use yii\base\Model;
 use yii\widgets\ActiveForm;
 use yii\helpers\html;
-class CalculationForm extends Model
-{
-    public $raw_types;
-    public $tonnazh;
-    public $month;
-}
 
-$model = new CalculationForm;
+$model = new CalculatorForm;
 
 $form = ActiveForm::begin([
     'id' => 'form', 
     'method' => 'post',
 ]);
-
-
 
 ?>
 
@@ -78,6 +71,8 @@ $form = ActiveForm::begin([
         <?php 
         ActiveForm::end();
         ?>
+
+
 
     <!-- <div id="main">
     <div class="block" id="block">
