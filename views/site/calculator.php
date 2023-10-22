@@ -6,10 +6,10 @@ use yii\helpers\html;
 
 $model = new CalculatorForm;
 
-$form = ActiveForm::begin([
-    'id' => 'form', 
-    'method' => 'post',
-]);
+// $form = ActiveForm::begin([
+//     'id' => 'form', 
+//     'method' => 'post',
+// ]);
 
 ?>
 
@@ -24,6 +24,16 @@ $form = ActiveForm::begin([
 <body>
     <div id="header"> <div class="subheader"><span id="calc">калькулятор расчёта стоимости доставки </span></div></div>
     
+    <div class="container-fluid">
+        <div class="row">
+
+        <?php
+        $form = ActiveForm::begin([
+        'id' => 'form', 
+        'method' => 'post',
+        ]);
+        ?>
+
     <div class="mb-3">
         <?= 
         $form->field($model, 'raw_types')
@@ -68,10 +78,12 @@ $form = ActiveForm::begin([
     Html::submitButton('рассчитать', ['class'=>'btn-success'])
     ?>
 
-        <?php 
-        ActiveForm::end();
-        ?>
+    <?php 
+    ActiveForm::end();
+    ?>
 
+    </div>
+    </div>
 
 
     <!-- <div id="main">

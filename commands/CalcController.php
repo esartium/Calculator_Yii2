@@ -20,7 +20,6 @@ class CalcController extends Controller {
     }
     return $options;
     }
-
         public function actionCalc() {
         if ($this->raw_types == NULL || $this->tonnazh == NULL || $this->month == NULL) {
             echo "\033[91m выполнение команды завершено с ошибкой" . "\n";
@@ -33,6 +32,18 @@ class CalcController extends Controller {
             if ($this->month == NULL) {
                 echo "\033[91m необходимо ввести месяц" . "\n";
             }
+        } else if ($this->tonnazh != 25 && $this->tonnazh != 50 && $this->tonnazh != 75 && $this->tonnazh != 100 || $this->raw_types != 'соя' && $this->raw_types != 'жмых' && $this->raw_types != 'шрот' || $this->month != 'январь' && $this->month != 'февраль' && $this->month != 'август' && $this->month != 'сентябрь' && $this->month != 'октябрь' && $this->month != 'ноябрь') {
+            echo "\033[91m выполнение команды завершено с ошибкой" . "\n";
+            if ($this->tonnazh != 25 && $this->tonnazh != 50 && $this->tonnazh != 75 && $this->tonnazh != 100) {
+            echo "\033[91m не найден прайс для значения --tonnazh=" . $this->tonnazh . "\n";
+        }
+        if ($this->raw_types != 'соя' && $this->raw_types != 'жмых' && $this->raw_types != 'шрот') {
+            echo "\033[91m не найден прайс для значения --raw_types=" . $this->raw_types . "\n";
+        }
+        if ($this->month != 'январь' && $this->month != 'февраль' && $this->month != 'август' && $this->month != 'сентябрь' && $this->month != 'октябрь' && $this->month != 'ноябрь') {
+            echo "\033[91m не найден прайс для значения --month=" . $this->month . "\n";
+        }
+        echo "\033[91m проверьте правильность введенных значений" . "\n";
         } else {
         echo "\033[92m вы ввели: " . "\n";
         echo "\033[93m тип сырья: " . $this->raw_types. "\n";
@@ -94,5 +105,5 @@ class CalcController extends Controller {
             return ExitCode::OK; 
         }
         }
+        } //главная скобка
 
-} //главная скобка
