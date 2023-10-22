@@ -21,34 +21,17 @@ class CalcController extends Controller {
     return $options;
     }
 
-    public function rules() { //правила валидации
-        return [
-            // атрибут required указывает, что перечисленные поля обязательны для заполнения
-            [[$this->raw_types], 'required', 'message' => 'выполнение команды завершено с ошибкой' . "\n" . 'необходимо ввести тип сырья' . "\n"],
-            [[$this->tonnazh], 'required', 'message' => 'выполнение команды завершено с ошибкой' . "\n" . 'необходимо ввести тоннаж' . "\n"],
-            [[$this->month], 'required', 'message' => 'выполнение команды завершено с ошибкой' . "\n" . 'необходимо ввести месяц' . "\n"]
-        ];
-        }
-
-        public function actionIndex() {
-        if ($this->raw_types == NULL || $this->tonnazh || $this->month) {
-            echo 'выполнение команды завершено с ошибкой' . "\n";
-        }
-        }
-    
-        
-
-    public function actionCalc() {
+        public function actionCalc() {
         if ($this->raw_types == NULL || $this->tonnazh == NULL || $this->month == NULL) {
-            echo 'выполнение команды завершено с ошибкой' . "\n";
+            echo "\033[91m выполнение команды завершено с ошибкой" . "\n";
             if ($this->raw_types == NULL) {
-                echo 'необходимо ввести тип сырья' . "\n";
+                echo "\033[91m необходимо ввести тип сырья" . "\n";
             }
             if ($this->tonnazh == NULL) {
-                echo 'необходимо ввести тоннаж' . "\n";
+                echo "\033[91m необходимо ввести тоннаж" . "\n";
             }
             if ($this->month == NULL) {
-                echo 'необходимо ввести месяц' . "\n";
+                echo "\033[91m необходимо ввести месяц" . "\n";
             }
         } else {
         echo "\033[92m вы ввели: " . "\n";
