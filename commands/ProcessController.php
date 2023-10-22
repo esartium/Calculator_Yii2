@@ -1,3 +1,10 @@
+<?php
+
+namespace app\commands;
+use yii\console\Controller;
+use yii\console\ExitCode;
+class ProcessController extends Controller {
+
 public function actionQueueResult()
 {
     $base_path = __DIR__.'/runtime/queue.job';
@@ -11,10 +18,8 @@ public function actionQueueResult()
              unlink($base_path);
          }
          sleep(2);
+         return ExitCode::OK;
 }
-
-ProcessProcessController
-php yii process/queue-result
-
-
+}
+}
 

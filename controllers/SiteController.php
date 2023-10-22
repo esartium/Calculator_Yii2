@@ -128,7 +128,7 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    // public function actionCalculator()
+    // public function actionCalculator1()
     // {
         
     //     if (empty($_POST) === false) {
@@ -137,7 +137,7 @@ class SiteController extends Controller
     //         if (file_exists($base_path) === true) {
     //                 unlink($base_path);
     //         }
-    //         foreach ($_POST['CalculationForm'] as $key => $value) {
+    //         foreach ($_POST['CalculatorForm'] as $key => $value) {
     //             file_put_contents($base_path, "$key = $value" . PHP_EOL, FILE_APPEND);
     //         }
     //     }
