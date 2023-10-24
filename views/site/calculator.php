@@ -26,7 +26,7 @@ $model = new CalculatorForm;
         </div>
     </div>
 
-§   <div class="row" id="highline2">
+   <div class="row" id="highline2">
                 <div class="col-md-3">
                 <div class="choose" id="obvl">выберите месяц текущего года</div>
                 </div>
