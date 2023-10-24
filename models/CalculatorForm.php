@@ -25,6 +25,15 @@ class CalculatorForm extends Model
             $this->stoimost = $prices[$raw_types][$month][$tonnazh];
         }
 
+        public function pricelist() {
+            if ($this->raw_types == 'шрот') {
+                require_once ('../views/site/tables/Shrot.html');
+            } else if ($this->raw_types == 'жмых') {
+                require_once ('../views/site/tables/Zhmih.html');
+            } else {
+                require_once ('../views/site/tables/Soya.html');
+            }
+        }
 
 } //главная скобка
 

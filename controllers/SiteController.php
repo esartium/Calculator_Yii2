@@ -133,7 +133,6 @@ class SiteController extends Controller
         $model = new CalculatorForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // если валидация пройдена, то открывается штука
             $model->price($model->raw_types, $model->tonnazh, $model->month);
             return $this->render('calculator-confirm', ['model' => $model]);
         } 
