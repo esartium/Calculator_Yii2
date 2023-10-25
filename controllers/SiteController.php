@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\CalculatorForm;
+use app\models\Raschet;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -128,24 +130,20 @@ class SiteController extends Controller
 
     public function actionCalculator()
     {
+        $model = new CalculatorForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->price($model->raw_types, $model->tonnazh, $model->month);
+            return $this->render('calculator-confirm', ['model' => $model]);
+        } 
+            // либо страница отображается первый раз, либо есть ошибка в данных
+            return $this->render('calculator', ['model' => $model]);
         
-        if (empty($_POST) === false) {
-            $base_path = Yii::getAlias('@runtime') . '/queue.job';
-            
-            if (file_exists($base_path) === true) {
-                    unlink($base_path);
-            }
-            foreach ($_POST['CalculationForm'] as $key => $value) {
-                file_put_contents($base_path, "$key = $value" . PHP_EOL, FILE_APPEND);
-            }
-
-
-
-
-
-        }
-        return $this->render('calculator');
     }
 
-}
+
+
+        
+} //главная скобка
+
 
