@@ -31,7 +31,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+    public static function find()
     {
         return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
     }
