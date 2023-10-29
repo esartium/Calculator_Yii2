@@ -118,33 +118,6 @@ return $prices = [
     ]
 ];
 
-$month = [
-    "январь",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-];
-
-$types = [
-    "шрот",
-    "соя",
-    "жмых",
-    "",
-    "",
-    "",
-    "",
-];
-
-$tonnazh = [
-    "25",
-    "50",
-    "75",
-    "100",
-];
-
-foreach ($types as $type) {
-    $prices[] = $type;
-}
+// foreach ($types as $type) {
+//     $prices[] = $type;
+// }
