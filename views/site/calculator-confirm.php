@@ -28,3 +28,4 @@ use yii\helpers\Html;
 <div class="y">
 стоимость рассчитана с помощью таблицы: <?= Html::encode($model->pricelist()) ?>
 </div>
+
