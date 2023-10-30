@@ -3,16 +3,16 @@
 use yii\db\Migration;
 
 /**
- * Class m231030_200319_soya
+ * Class m231030_205731_zhmih
  */
-class m231030_200319_soya extends Migration
+class m231030_205731_zhmih extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('soya', [
+        $this->createTable('zhmih', [
             // 'id' => $this->primaryKey(), это исходный варик
             'id' => $this->integer(3)->primaryKey()->notNull()->autoIncrement(),
             'тоннаж'=> $this->integer(3)->notNull(),
@@ -24,7 +24,7 @@ class m231030_200319_soya extends Migration
             'ноябрь' => $this->integer(3)->notNull(),
         ]);
 
-        $this->insert('soya', [
+        $this->insert('zhmih', [
             'тоннаж'=> '25',
             'январь' => '',
             'февраль' => '',
@@ -34,7 +34,7 @@ class m231030_200319_soya extends Migration
             'ноябрь' => '',
         ]);
 
-        $this->insert('soya', [
+        $this->insert('zhmih', [
             'тоннаж'=> '50',
             'январь' => '',
             'февраль' => '',
@@ -44,7 +44,7 @@ class m231030_200319_soya extends Migration
             'ноябрь' => '',
         ]);
 
-        $this->insert('soya', [
+        $this->insert('zhmih', [
             'тоннаж'=> '75',
             'январь' => '',
             'февраль' => '',
@@ -54,7 +54,7 @@ class m231030_200319_soya extends Migration
             'ноябрь' => '',
         ]);
 
-        $this->insert('soya', [
+        $this->insert('zhmih', [
             'тоннаж'=> '100',
             'январь' => '',
             'февраль' => '',
@@ -63,6 +63,8 @@ class m231030_200319_soya extends Migration
             'октябрь' => '',
             'ноябрь' => '',
         ]);
+
+        
     }
 
     /**
@@ -75,7 +77,7 @@ class m231030_200319_soya extends Migration
         //
 
         // это надо:
-        $this->dropTable('soya');
+        $this->dropTable('zhmih');
 
         // return false; //вроде тоже убрать
     }
@@ -89,7 +91,7 @@ class m231030_200319_soya extends Migration
 
     public function down()
     {
-        echo "m231030_200319_soya cannot be reverted.\n";
+        echo "m231030_205731_zhmih cannot be reverted.\n";
 
         return false;
     }
