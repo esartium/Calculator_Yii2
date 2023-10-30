@@ -5,32 +5,32 @@
 
 
 // дефолтная (почти) хрень:
-// return [
-//     'class' => 'yii\db\Connection',
-//     'dsn' => 'mysql:host=127.0.0.1;dbname=yii2basic;port=8889',
-//     'username' => 'root',
-//     'password' => '',
-//     'charset' => 'utf8',
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'mysql:host=127.0.0.1;dbname=yii2basic;port=8889',
+    'username' => 'root',
+    'password' => 'root',
+    'charset' => 'utf8',
 
     // Schema cache options (for production environment)
     // 'enableSchemaCache' => true,
     // 'schemaCacheDuration' => 60,
     // 'schemaCache' => 'cache',
-// ];
+];
 
 
 // вроде более-менее не хрень:
-return [
-'components' => [
-    'db' => [
-        'class' => 'yii\db\Connection',
-        'dsn' => 'mysql:host=localhost;port=8889;dbname=yii2basic;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock',
-        'username' => 'root',
-        'password' => '',
-        'charset' => 'utf8',
-    ],
-],
-];
+// return [
+// 'components' => [
+//     'db' => [
+//         'class' => 'yii\db\Connection',
+//         'dsn' => 'mysql:host=127.0.0.1;port=8889;dbname=yii2basic;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock',
+//         'username' => 'root',
+//         'password' => 'root',
+//         'charset' => 'utf8',
+//     ],
+// ],
+// ];
 
 
 
