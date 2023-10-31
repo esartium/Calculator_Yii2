@@ -5,9 +5,10 @@ namespace app\models;
 use Yii;
 // use yii\base\Model;
 use yii\db\ActiveRecord;
-use app\models\Soya;
+
 use app\models\Zhmih;
 use app\models\Shrot;
+use app\models\Soya;
 use app\controllers\SiteController;
 
 class CalculatorForm extends ActiveRecord
@@ -25,6 +26,48 @@ class CalculatorForm extends ActiveRecord
         ];
         }
 
+    // public function price() {
+    //     switch ($this->raw_types) {
+    //                 // case 'соя':
+    //                 //     $calc = new Soya();
+    //                 //     $this->stoimost = $calc->stm;
+    //                 // break;
+    //                 case 'жмых':
+    //                     $calc = new Zhmih();
+    //                     $this->stoimost = $calc->stm;
+    //                 break;
+    //                 case 'шрот':
+    //                     $calc = new Shrot();
+    //                     $this->stoimost = $calc->stm;
+    //                 break;
+    //             }
+    //             return $this->stoimost;
+    //         }
+    //         public function pricelist() {
+    //             if ($this->raw_types == 'шрот') {
+    //                 require_once ('../views/site/tables/Shrot.html');
+    //             } else if ($this->raw_types == 'жмых') {
+    //                 require_once ('../views/site/tables/Zhmih.html');
+    //             } else {
+    //                 require_once ('../views/site/tables/Soya.html');
+    //             }
+    //         }
+
+
+
+
+
+
+
+
+
+
+
+    // public $raw_types;
+    // public $tonnazh;
+    // public $month;
+
+    // public $stoimost;
         // public function price($raw_types, $tonnazh, $month) { //функция расчёта стоимости
         //     $prices =  \Yii::$app->params['prices'];
         //     $this->stoimost = $prices[$raw_types][$month][$tonnazh];
@@ -55,8 +98,8 @@ class CalculatorForm extends ActiveRecord
                     switch ($this->month) {
                         case 'yanvar':
                             $this->stoimost = Shrot::find()
-                            ->where(['tonnazh' => $this->tonnazh])
-                            ->select(['yanvar']);
+                            ->where(['тоннаж' => $this->tonnazh])
+                            ->select(['январь']);
                             $this->sst = $this->stoimost->yanvar;
                             break;
                 

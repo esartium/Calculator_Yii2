@@ -23,8 +23,9 @@ use yii\helpers\Html;
     <li><label>месяц</label>: <?= Html::encode($model->month) ?></li>
 </ul>
 
-<p class="y"><b> => стоимость: </b> <?= Html::encode($model->stoimost) ?> </p>
-<p class="y"><b> => стоимость: </b> <?php echo $model->stoimost ?> </p>
+<p class="y"><b> => стоимость: </b> <?= Html::encode($model->price()); ?> </p>
+<p class="y"><b> => стоимость: </b> <?php echo $model->stoimost; ?> </p>
+<p class="y"><b> => стоимость: </b> <?php var_dump($model->price()); ?> </p>
 
 <div class="y">
 стоимость рассчитана с помощью таблицы: <?= Html::encode($model->pricelist()) ?>
