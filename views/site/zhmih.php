@@ -2,7 +2,11 @@
 use yii\helpers\Html;
 ?>
 
-
+<div>
+<?php
+echo 'Вычисленная стоимость: ' . $st;
+?>
+</div>
 
 <h1>Январь:</h1>
 <ul>

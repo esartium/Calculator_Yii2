@@ -134,31 +134,47 @@ class SiteController extends Controller
 
     public function actionCalculator()
     {
+        
         $model = new CalculatorForm();
-
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            // $model->price();
-
+            $model->price();
+            
             if ($model->raw_types == 'шрот') {
                 $calc = Shrot::find();
                 $calcs = $calc->orderBy('тоннаж')
                 ->all();
+                $st = Shrot::find()
+                ->where(['тоннаж' => $model->tonnazh]);    
                 return $this->render('shrot', [
                     'calcs' => $calcs,
+                    'model' => $model,
+                    'st'=> $st,
                 ]);
             } else if ($model->raw_types == 'жмых') {
                 $calc = Zhmih::find();
                 $calcs = $calc->orderBy('тоннаж')
                 ->all();
+                $st = (new \yii\db\Query())
+                ->select(['январь'])
+                ->from('zhmih')
+                ->where(['like', 'тоннаж', '25'])
+                ->scalar();
+                    
                 return $this->render('zhmih', [
                     'calcs' => $calcs,
+                    'model' => $model,
+                    'st'=> $st,
                 ]);
             } else if ($model->raw_types == 'соя') {
                 $calc = Soya::find();
                 $calcs = $calc->orderBy('тоннаж')
                 ->all();
+                $st = Shrot::find()
+                ->where(['тоннаж' => $model->tonnazh]);    
                 return $this->render('soya', [
                     'calcs' => $calcs,
+                    'model' => $model,
+                    'st'=> $st,
                 ]);
             }
         } 

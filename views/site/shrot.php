@@ -1,7 +1,27 @@
 <?php
 use yii\helpers\Html;
-use yii\model\CalculatorForm;
+use yii\models\CalculatorForm;
 ?>
+
+<p class="y">Вы ввели следующую информацию:</p>
+<ul class="y">
+    <li><label>тип сырья</label>: <?= Html::encode($model->raw_types) ?></li>
+    <li><label>тоннаж</label>: <?= Html::encode($model->tonnazh) ?></li>
+    <li><label>месяц</label>: <?= Html::encode($model->month) ?></li>
+</ul>
+
+<?php 
+$model->price();
+// $mon = $model->month;
+// $r_t = $model->raw_types;
+// $ton = $model->tonnazh;
+?>
+
+<p class="y"><b> => стоимость2: </b> <?= Html::encode($model->stoimost) ?> </p>
+<p class="y"><b> => стоимость3: </b> <?php echo $model->stoimost; ?> </p>
+<p class="y"><b> => стоимость4: </b> <?php var_dump($model->price()); ?> </p>
+
+
 
 
 <h1>Январь:</h1>
@@ -12,6 +32,14 @@ use yii\model\CalculatorForm;
         <?= $shrot->тоннаж ?>
     </li>
 <?php endforeach; ?>
+</ul>
+
+<h1>Январь:</h1>
+<ul>
+    <?php
+print_r($st);
+var_dump($st);
+?>
 </ul>
 
 <h1>Февраль:</h1>

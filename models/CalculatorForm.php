@@ -26,144 +26,39 @@ class CalculatorForm extends ActiveRecord
         }
 
         
-        // public function price() {
-        //     switch ($this->raw_types) {
-        //         case 'шрот':
-                    
-        //             switch ($this->month) {
-        //                 case 'январь':
-        //                     // $this->stoimost = new Shrot();
-        //                     $this->stoimost = Shrot::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['январь']);
-        //                     // $this->st = $this->stoimost->январь;
-        //                     break;
-                
-        //                 case 'февраль':
-        //                     $this->stoimost = Shrot::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['февраль']);
-        //                     break;
-                
-        //                 case 'август':
-        //                     $this->stoimost = Shrot::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['август']);
-        //                     break;
-                
-        //                 case 'сентябрь':
-        //                     $this->stoimost = Shrot::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['сентябрь']);
-        //                     break;
-                
-        //                 case 'октябрь':
-        //                     $this->stoimost = Shrot::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['октябрь']);
-        //                     break;
-                
-        //                 case 'ноябрь':
-        //                     $this->stoimost = Shrot::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['ноябрь']);
-        //                     break;
-        //                 }
-                    
-        //         break;
+        public function price() {
+            switch ($this->raw_types) {
+                case 'шрот':
+                             $this->stoimost = Shrot::find()
+                            ->where(['тоннаж' => $this->tonnazh])
+                            ->select([$this->month]);            
+                break;
 
-        //         case 'жмых':
-        //             switch ($this->month) {
-        //                 case 'январь':
-        //                     $this->stoimost = Zhmih::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['январь']);
-        //                     break;
-                
-        //                 case 'февраль':
-        //                     $this->stoimost = Zhmih::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['февраль']);
-        //                     break;
-                
-        //                 case 'август':
-        //                     $this->stoimost = Zhmih::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['август']);
-        //                     break;
-                
-        //                 case 'сентябрь':
-        //                     $this->stoimost = Zhmih::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['сентябрь']);
-        //                     break;
-                
-        //                 case 'октябрь':
-        //                     $this->stoimost = Zhmih::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['октябрь']);
-        //                     break;
-                
-        //                 case 'ноябрь':
-        //                     $this->stoimost = Zhmih::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['ноябрь']);
-        //                     break;
-        //                 }
-        //         break;    
+                case 'жмых':
+                            $this->stoimost = Zhmih::find()
+                            ->where(['тоннаж' => $this->tonnazh])
+                            ->select([$this->month]);
+                break;    
+
+                case 'соя': 
                     
-        //         case 'соя': 
-        //             switch ($this->month) {
-        //                 case 'январь':
-        //                     $this->stoimost = Soya::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['январь']);
-        //                     break;
-                
-        //                 case 'февраль':
-        //                     $this->stoimost = Soya::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['февраль']);
-        //                     break;
-                
-        //                 case 'август':
-        //                     $this->stoimost = Soya::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['август']);
-        //                     break;
-                
-        //                 case 'сентябрь':
-        //                     $this->stoimost = Soya::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['сентябрь']);
-        //                     break;
-                
-        //                 case 'октябрь':
-        //                     $this->stoimost = Soya::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['октябрь']);
-        //                     break;
-                
-        //                 case 'ноябрь':
-        //                     $this->stoimost = Soya::find()
-        //                     ->where(['тоннаж' => $this->tonnazh])
-        //                     ->select(['ноябрь']);
-        //                     break;
-        //                 }
-        //         break;
-        //     }
-        //     return $this->st;
-        // }
+                            $this->stoimost = Soya::find()
+                            ->where(['тоннаж' => $this->tonnazh])
+                            ->select([$this->month]);
+                break;
+            }
+            return $this->stoimost;
+        }
     
-        // public function pricelist() {
-        //     if ($this->raw_types == 'шрот') {
-        //         require_once ('../views/site/tables/Shrot.html');
-        //     } else if ($this->raw_types == 'жмых') {
-        //         require_once ('../views/site/tables/Zhmih.html');
-        //     } else {
-        //         require_once ('../views/site/tables/Soya.html');
-        //     }
-        // }
+        public function pricelist() {
+            if ($this->raw_types == 'шрот') {
+                require_once ('../views/site/tables/Shrot.html');
+            } else if ($this->raw_types == 'жмых') {
+                require_once ('../views/site/tables/Zhmih.html');
+            } else {
+                require_once ('../views/site/tables/Soya.html');
+            }
+        }
 
 } //главная скобка
 
