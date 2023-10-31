@@ -47,14 +47,17 @@ class CalculatorForm extends ActiveRecord
         //     }
         //     return $this->stoimost;
         // }
+
+        public $sst;
         public function price() {
             switch ($this->raw_types) {
                 case 'шрот':
                     switch ($this->month) {
-                        case 'январь':
+                        case 'yanvar':
                             $this->stoimost = Shrot::find()
-                            ->where(['тоннаж' => $this->tonnazh])
-                            ->select(['январь']);
+                            ->where(['tonnazh' => $this->tonnazh])
+                            ->select(['yanvar']);
+                            $this->sst = $this->stoimost->yanvar;
                             break;
                 
                         case 'февраль':

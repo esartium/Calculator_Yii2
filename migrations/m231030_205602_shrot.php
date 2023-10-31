@@ -13,7 +13,6 @@ class m231030_205602_shrot extends Migration
     public function safeUp()
     {
         $this->createTable('shrot', [
-            // 'id' => $this->primaryKey(), это исходный варик
             'id' => $this->primaryKey(),
             'тоннаж'=> $this->integer(3)->notNull(),
             'январь' => $this->integer(3)->notNull(),
