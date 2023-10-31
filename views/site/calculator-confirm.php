@@ -24,6 +24,7 @@ use yii\helpers\Html;
 </ul>
 
 <p class="y"><b> => стоимость: </b> <?= Html::encode($model->stoimost) ?> </p>
+<p class="y"><b> => стоимость: </b> <?php echo $model->stoimost ?> </p>
 
 <div class="y">
 стоимость рассчитана с помощью таблицы: <?= Html::encode($model->pricelist()) ?>
