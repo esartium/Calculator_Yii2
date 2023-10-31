@@ -25,8 +25,8 @@ use yii\helpers\Html;
 
 
 
-<p class="y"><b> => стоимость2: </b> <?= Html::encode($model->st_final) ?> </p>
-<p class="y"><b> => стоимость3: </b> <?php echo $model->st_final; ?> </p>
+<p class="y"><b> => стоимость2: </b> <?= Html::encode($model->st) ?> </p>
+<p class="y"><b> => стоимость3: </b> <?php echo $model->st; ?> </p>
 <p class="y"><b> => стоимость4: </b> <?php var_dump($model->price()); ?> </p>
 
 

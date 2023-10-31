@@ -3,6 +3,9 @@
 namespace app\controllers;
 
 use app\models\CalculatorForm;
+
+use app\models\Soya;
+use app\models\Zhmih;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -10,6 +13,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+
+use app\models\Shrot;
 
 class SiteController extends Controller
 {
@@ -132,13 +137,41 @@ class SiteController extends Controller
         $model = new CalculatorForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $model->price();
-            return $this->render('calculator-confirm', ['model' => $model]);
+            // $model->price();
+
+            if ($model->raw_types == 'шрот') {
+                $calc = Shrot::find();
+                $calcs = $calc->orderBy('тоннаж')
+                ->all();
+                return $this->render('shrot', [
+                    'calcs' => $calcs,
+                ]);
+            } else if ($model->raw_types == 'жмых') {
+                $calc = Zhmih::find();
+                $calcs = $calc->orderBy('тоннаж')
+                ->all();
+                return $this->render('zhmih', [
+                    'calcs' => $calcs,
+                ]);
+            } else if ($model->raw_types == 'соя') {
+                $calc = Soya::find();
+                $calcs = $calc->orderBy('тоннаж')
+                ->all();
+                return $this->render('soya', [
+                    'calcs' => $calcs,
+                ]);
+            }
         } 
             // либо страница отображается первый раз, либо есть ошибка в данных
             return $this->render('calculator', ['model' => $model]);
         
     }
+
+    // public function actionShrot() {
+    //     $calc = Shrot::find()->all();
+
+    //     return $this->render('shrot', ['calc'=> $calc]);
+    // }
 
 
 
