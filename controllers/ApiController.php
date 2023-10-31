@@ -3,14 +3,12 @@
 namespace app\controllers;
 
 use app\models\CalculatorForm;
+
 use app\models\Month;
 use app\models\Raw_types;
 use app\models\Tonnazh;
-use Yii;
 
-// use yii\filters\AccessControl;
-// use yii\web\Response;
-// use yii\filters\VerbFilter;
+use Yii;
 
 
 class ApiController extends \yii\rest\Controller
@@ -33,12 +31,9 @@ class ApiController extends \yii\rest\Controller
 
     public string $type;
     public function actionGetData($type) {
-        // $mass = new Tonnazh();
         Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
         if ($type == 'tonnazh') {
             return [tonnazh::$tonnazh]; 
-            //$tonnazh - массив из модели tonnazh
-            // return $mass->tonnazh;
         }
         if ($type == 'month') {
             return [Month::$month];

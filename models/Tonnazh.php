@@ -2,7 +2,6 @@
 
 namespace app\models;
 class Tonnazh extends \yii\base\BaseObject 
-// implements \yii\web\IdentityInterface
 {
     private static $tonnazh = [
         '25' => [

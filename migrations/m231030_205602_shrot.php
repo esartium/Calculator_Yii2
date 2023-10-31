@@ -2,14 +2,8 @@
 
 use yii\db\Migration;
 
-/**
- * Class m231030_205602_shrot
- */
 class m231030_205602_shrot extends Migration
 {
-    /**
-     * {@inheritdoc}
-     */
     public function safeUp()
     {
         $this->createTable('shrot', [
@@ -68,34 +62,8 @@ class m231030_205602_shrot extends Migration
             ]);
         
     }
-
-    /**
-     * {@inheritdoc}
-     */
     public function safeDown()
     {
-        //echo потом убрать, пусть будет пока
-        // echo "m101129_185401_create_news_table cannot be reverted.\n";
-        //
-
-        // это надо:
         $this->dropTable('shrot');
-
-        // return false; //вроде тоже убрать
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m231030_205602_shrot cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

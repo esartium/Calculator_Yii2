@@ -119,7 +119,5 @@ abstract class Raw_types extends \yii\base\BaseObject implements \yii\web\Identi
                 '100'=> '142',
             ],
         ],
-        
-        
     ];
 }

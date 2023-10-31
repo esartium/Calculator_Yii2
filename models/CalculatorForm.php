@@ -3,13 +3,11 @@
 namespace app\models;
 
 use Yii;
-// use yii\base\Model;
 use yii\db\ActiveRecord;
 
 use app\models\Zhmih;
 use app\models\Shrot;
 use app\models\Soya;
-use app\controllers\SiteController;
 
 class CalculatorForm extends ActiveRecord
 {
@@ -19,7 +17,7 @@ class CalculatorForm extends ActiveRecord
 
     public $stoimost;
 
-    public function rules() { //правила валидации
+    public function rules() {
         return [
             [['raw_types', 'tonnazh', 'month'], 'required', 'message' => 'это поле не может быть пустым']
         ];
@@ -59,8 +57,7 @@ class CalculatorForm extends ActiveRecord
                 require_once ('../views/site/tables/Soya.html');
             }
         }
-
-} //главная скобка
+} 
 
 
 

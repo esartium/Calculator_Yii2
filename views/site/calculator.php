@@ -1,9 +1,7 @@
 <?php
 use app\models\CalculatorForm;
-use yii\base\Model;
 use yii\widgets\ActiveForm;
 use yii\helpers\html;
-
 
 $model = new CalculatorForm;
 

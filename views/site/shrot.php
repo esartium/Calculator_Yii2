@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\models\CalculatorForm;
 ?>
 
 <p class="y">Вы ввели следующую информацию:</p>

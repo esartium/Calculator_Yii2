@@ -1,17 +1,8 @@
 <?php
 
 use yii\db\Migration;
-// use yii\db\Schema;
-// use \yii\base\BaseObject;
-
-/**
- * Class m231030_200319_soya
- */
 class m231030_200319_soya extends Migration
 {
-    /**
-     * {@inheritdoc}
-     */
     public function safeUp()
     {
         $this->createTable('soya', [
