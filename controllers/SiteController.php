@@ -140,48 +140,605 @@ class SiteController extends Controller
             $model->price();
             
             if ($model->raw_types == 'шрот') {
-                $calc = Shrot::find();
-                $calcs = $calc->orderBy('тоннаж')
-                ->all();
-                $st = Shrot::find()
-                ->where(['тоннаж' => $model->tonnazh]);    
+                // $calc = Shrot::find();
+                // $calcs = $calc->orderBy('тоннаж')
+                // ->all();
+                // $st = Shrot::find()
+                // ->where(['тоннаж' => $model->tonnazh]);
+                if ($model->month == 'январь') {
+                    switch($model->tonnazh) {
+                    case 25: 
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('shrot')
+                        ->where(['like', 'тоннаж', '25'])
+                        ->scalar();
+                        break;
+                    case 50:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('shrot')
+                        ->where(['like', 'тоннаж', '50'])
+                        ->scalar();
+                        break;
+                    case 75:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('shrot')
+                        ->where(['like', 'тоннаж', '75'])
+                        ->scalar();
+                        break;
+                    case 100:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('shrot')
+                        ->where(['like', 'тоннаж', '100'])
+                        ->scalar();
+                        break;
+                    }
+                } else if ($model->month == 'февраль') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'август') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'сентябрь') {
+                    switch($model->tonnazh) { 
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'октябрь') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'ноябрь') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('shrot')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                    }    
                 return $this->render('shrot', [
-                    'calcs' => $calcs,
+                    // 'calcs' => $calcs,
                     'model' => $model,
                     'st'=> $st,
                 ]);
-            } else if ($model->raw_types == 'жмых') {
-                $calc = Zhmih::find();
-                $calcs = $calc->orderBy('тоннаж')
-                ->all();
-                $st = (new \yii\db\Query())
-                ->select(['январь'])
-                ->from('zhmih')
-                ->where(['like', 'тоннаж', '25'])
-                ->scalar();
-                    
+            } else if ($model->raw_types == 'жмых') { //иф елс скобка
+                // $calc = Zhmih::find();
+                // $calcs = $calc->orderBy('тоннаж')
+                // ->all();
+                if ($model->month == 'январь') {
+                    switch($model->tonnazh) {
+                    case 25: 
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('zhmih')
+                        ->where(['like', 'тоннаж', '25'])
+                        ->scalar();
+                        break;
+                    case 50:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('zhmih')
+                        ->where(['like', 'тоннаж', '50'])
+                        ->scalar();
+                        break;
+                    case 75:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('zhmih')
+                        ->where(['like', 'тоннаж', '75'])
+                        ->scalar();
+                        break;
+                    case 100:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('zhmih')
+                        ->where(['like', 'тоннаж', '100'])
+                        ->scalar();
+                        break;
+                    }
+                } else if ($model->month == 'февраль') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'август') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'сентябрь') {
+                    switch($model->tonnazh) { 
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'октябрь') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'ноябрь') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('zhmih')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                }
                 return $this->render('zhmih', [
-                    'calcs' => $calcs,
+                    // 'calcs' => $calcs,
                     'model' => $model,
                     'st'=> $st,
                 ]);
             } else if ($model->raw_types == 'соя') {
-                $calc = Soya::find();
-                $calcs = $calc->orderBy('тоннаж')
-                ->all();
-                $st = Shrot::find()
-                ->where(['тоннаж' => $model->tonnazh]);    
-                return $this->render('soya', [
-                    'calcs' => $calcs,
-                    'model' => $model,
-                    'st'=> $st,
-                ]);
-            }
+                // $calc = Soya::find();
+                // $calcs = $calc->orderBy('тоннаж')
+                // ->all();
+                // $st = Shrot::find()
+                // ->where(['тоннаж' => $model->tonnazh]); 
+                
+                if ($model->month == 'январь') {
+                    switch($model->tonnazh) {
+                    case 25: 
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('soya')
+                        ->where(['like', 'тоннаж', '25'])
+                        ->scalar();
+                        break;
+                    case 50:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('soya')
+                        ->where(['like', 'тоннаж', '50'])
+                        ->scalar();
+                        break;
+                    case 75:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('soya')
+                        ->where(['like', 'тоннаж', '75'])
+                        ->scalar();
+                        break;
+                    case 100:
+                        $st = (new \yii\db\Query())
+                        ->select(['январь'])
+                        ->from('soya')
+                        ->where(['like', 'тоннаж', '100'])
+                        ->scalar();
+                        break;
+                    }
+                } else if ($model->month == 'февраль') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['февраль'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'август') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['август'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'сентябрь') {
+                    switch($model->tonnazh) { 
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['сентябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'октябрь') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['октябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                } else if ($model->month == 'ноябрь') {
+                    switch($model->tonnazh) {
+                        case 25: 
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '25'])
+                            ->scalar();
+                            break;
+                        case 50:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '50'])
+                            ->scalar();
+                            break;
+                        case 75:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '75'])
+                            ->scalar();
+                            break;
+                        case 100:
+                            $st = (new \yii\db\Query())
+                            ->select(['ноябрь'])
+                            ->from('soya')
+                            ->where(['like', 'тоннаж', '100'])
+                            ->scalar();
+                            break;
+                        }
+                
+                    }
+            return $this->render('soya', [
+                // 'calcs' => $calcs,
+                'model' => $model,
+                'st'=> $st,
+            ]);
         } 
-            // либо страница отображается первый раз, либо есть ошибка в данных
-            return $this->render('calculator', ['model' => $model]);
+            
         
     }
+    // либо страница отображается первый раз, либо есть ошибка в данных
+    return $this->render('calculator', ['model' => $model]);
 
     // public function actionShrot() {
     //     $calc = Shrot::find()->all();
@@ -190,8 +747,6 @@ class SiteController extends Controller
     // }
 
 
-
+    }
+}
         
-} //главная скобка
-
-

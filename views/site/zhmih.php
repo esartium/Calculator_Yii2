@@ -2,68 +2,20 @@
 use yii\helpers\Html;
 ?>
 
+<p class="y">Вы ввели следующую информацию:</p>
+<ul class="y">
+    <li><label>тип сырья</label>: <?= Html::encode($model->raw_types) ?></li>
+    <li><label>тоннаж</label>: <?= Html::encode($model->tonnazh) ?></li>
+    <li><label>месяц</label>: <?= Html::encode($model->month) ?></li>
+</ul>
+
 <div>
 <?php
 echo 'Вычисленная стоимость: ' . $st;
 ?>
 </div>
 
-<h1>Январь:</h1>
-<ul>
-<?php foreach ($calcs as $zhmih): ?> <!-- calc - переменная из контроллера, shrot - название таблицы-->
-    <li>
-        <?= Html::encode("{$zhmih->id} ({$zhmih->январь}) ") ?>:
-        <?= $zhmih->тоннаж ?>
-    </li>
-<?php endforeach; ?>
-</ul>
+<?php 
+$model->pricelist();
+?>
 
-<h1>Февраль:</h1>
-<ul>
-<?php foreach ($calcs as $zhmih): ?> <!-- calc - переменная из контроллера, shrot - название таблицы-->
-    <li>
-        <?= Html::encode("{$zhmih->id} ({$zhmih->февраль})") ?>:
-        <?= $zhmih->тоннаж ?>
-    </li>
-<?php endforeach; ?>
-</ul>
-
-<h1>Август:</h1>
-<ul>
-<?php foreach ($calcs as $zhmih): ?> <!-- calc - переменная из контроллера, shrot - название таблицы-->
-    <li>
-        <?= Html::encode("{$zhmih->id} ({$zhmih->август})") ?>:
-        <?= $zhmih->тоннаж ?>
-    </li>
-<?php endforeach; ?>
-</ul>
-
-<h1>Сентябрь:</h1>
-<ul>
-<?php foreach ($calcs as $zhmih): ?> <!-- calc - переменная из контроллера, shrot - название таблицы-->
-    <li>
-        <?= Html::encode("{$zhmih->id} ({$zhmih->сентябрь})") ?>:
-        <?= $zhmih->тоннаж ?>
-    </li>
-<?php endforeach; ?>
-</ul>
-
-<h1>Октябрь:</h1>
-<ul>
-<?php foreach ($calcs as $zhmih): ?> <!-- calc - переменная из контроллера, shrot - название таблицы-->
-    <li>
-        <?= Html::encode("{$zhmih->id} ({$zhmih->октябрь})") ?>:
-        <?= $zhmih->тоннаж ?>
-    </li>
-<?php endforeach; ?>
-</ul>
-
-<h1>Ноябрь:</h1>
-<ul>
-<?php foreach ($calcs as $zhmih): ?> <!-- calc - переменная из контроллера, shrot - название таблицы-->
-    <li>
-        <?= Html::encode("{$zhmih->id} ({$zhmih->ноябрь})") ?>:
-        <?= $zhmih->тоннаж ?>
-    </li>
-<?php endforeach; ?>
-</ul>
