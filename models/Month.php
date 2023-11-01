@@ -1,10 +1,10 @@
 <?php
-
+// через gii !!
 namespace app\models;
 
 abstract class Month extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
-    private static $month = [
+    public static $month = [
 
         'январь' => [
             'шрот' => [

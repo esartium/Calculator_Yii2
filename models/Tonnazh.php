@@ -3,7 +3,7 @@
 namespace app\models;
 class Tonnazh extends \yii\base\BaseObject 
 {
-    private static $tonnazh = [
+    public static $tonnazh = [
         '25' => [
             'шрот' => [
                 'январь' => '125',

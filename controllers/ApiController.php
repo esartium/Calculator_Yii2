@@ -7,6 +7,7 @@ use app\models\CalculatorForm;
 use app\models\Month;
 use app\models\Raw_types;
 use app\models\Tonnazh;
+use app\models\Zhmih;
 
 use Yii;
 
@@ -32,6 +33,7 @@ class ApiController extends \yii\rest\Controller
     public string $type;
     public function actionGetData($type) {
         Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
+        return Zhmih::find()->all();
         if ($type == 'tonnazh') {
             return [tonnazh::$tonnazh]; 
         }
@@ -45,3 +47,5 @@ class ApiController extends \yii\rest\Controller
 
 }
 }
+
+// смотри фотку!!

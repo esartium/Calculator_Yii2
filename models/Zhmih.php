@@ -7,5 +7,8 @@ use app\models\CalculatorForm;
 
 class Zhmih extends ActiveRecord
 {
-    
+    public static function tableName()
+    {
+        return 'zhmih';
+    }
 }

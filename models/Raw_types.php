@@ -4,7 +4,7 @@ namespace app\models;
 
 abstract class Raw_types extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
-    private static $raw_types = [
+    public static $raw_types = [
         'шрот' => [
             'январь'=> [
                 '25'=> '125',

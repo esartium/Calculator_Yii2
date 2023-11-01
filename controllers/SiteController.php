@@ -68,8 +68,8 @@ class SiteController extends Controller
                 if ($model->month == 'январь') {
                     switch($model->tonnazh) {
                     case 25: 
-                        $st = (new \yii\db\Query())
-                        ->select(['январь'])
+                        $st = (new \yii\db\Query())   //поменять этот ужас на переменные
+                        ->select([$model->month])       //как тут
                         ->from('shrot')
                         ->where(['like', 'тоннаж', '25'])
                         ->scalar();
