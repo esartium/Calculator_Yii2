@@ -174,4 +174,53 @@
                             margin-right: 100px;
                             margin-top: -300px;
                         }
+
+                        #header2 {
+                            background-color: rgb(66, 66, 66);
+                            border: 4px dotted rgb(255, 217, 0);
+                            text-align: center;
+                            font-size: 60px;
+                            padding-top: 80px;
+                            font-family: 'Lora', serif;
+                            text-transform: uppercase;
+                            padding-bottom: 15px; 
+                            opacity: 0.93;   
+                            text-shadow: -5px 5px 8px rgb(30, 33, 30);
+                            height: 420px;
+                        }
+
+                        #header2:hover {
+                            opacity: 0.95; 
+                            text-shadow: -7px 6px 8px rgb(41, 43, 41);
+                            background-color: rgb(66, 66, 66);
+                            border: 4px dotted rgb(239, 199, 1);
+                        }
+                        
+                            .subheader2 {
+                                border: 1px double rgb(211, 211, 211);
+                                width: 92%;
+                                margin-top: -35px;
+                                float: center;
+                                margin-bottom: 45px;
+                                margin-left: 4%;
+                                height: 250px;
+                                padding-top: 10px;
+                            }
+                        
+                            #calc2 {
+                                color:rgb(183, 255, 147);
+                                font-family: 'Lora', serif;
+                                font-size: 27px;
+                            }
+
+                            .yyy {
+                                font-size: 22px;
+                                color: rgb(211, 211, 211);
+                            }
+
+                            #pricelist {
+                                margin-top: 20px;
+                                font-size: 18px;
+                                font-family: 'Lora', serif;
+                            }
                         
