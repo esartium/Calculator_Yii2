@@ -59,7 +59,7 @@ $model = new CalculatorForm;
 
                 <div class="selector">
                 <?= 
-                $form->field($model, 'tonnazh')
+                $form->field($model, 'tonnage')
                 ->label('тоннаж:')
                 ->dropDownList([
                     '25'=>'25',

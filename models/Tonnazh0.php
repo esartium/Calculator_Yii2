@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-class Tonnazh extends \yii\base\BaseObject 
+class Tonnazh0 extends \yii\base\BaseObject 
 {
     public static $tonnazh = [
         '25' => [

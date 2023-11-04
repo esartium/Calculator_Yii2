@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "month".
+ * This is the model class for table "tonnage".
  *
  * @property int $id
- * @property string $month
+ * @property int $tonnage
  *
  * @property Prices[] $prices
  */
-class Month extends \yii\db\ActiveRecord
+class Tonnage extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'month';
+        return 'tonnage';
     }
 
     /**
@@ -28,8 +28,8 @@ class Month extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['month'], 'required'],
-            [['month'], 'string', 'max' => 10],
+            [['tonnage'], 'required'],
+            [['tonnage'], 'integer'],
         ];
     }
 
@@ -40,7 +40,7 @@ class Month extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'month' => 'Month',
+            'tonnage' => 'Tonnage',
         ];
     }
 
@@ -51,6 +51,6 @@ class Month extends \yii\db\ActiveRecord
      */
     public function getPrices()
     {
-        return $this->hasMany(Prices::class, ['month_id' => 'id']);
+        return $this->hasMany(Prices::class, ['tonnage_id' => 'id']);
     }
 }

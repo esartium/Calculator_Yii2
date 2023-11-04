@@ -19,7 +19,7 @@ use yii\helpers\Html;
             <span id="calc2">вы ввели следующую информацию:</span>
             <div>
                 <p class="yyy">тип сырья: <?= Html::encode($model->raw_types) ?></p>
-                <p class="yyy">тоннаж: <?= Html::encode($model->tonnazh) ?></p>
+                <p class="yyy">тоннаж: <?= Html::encode($model->tonnage) ?></p>
                 <p class="yyy">месяц: <?= Html::encode($model->month) ?></p>
             </div>
             <span id="calc2">
@@ -36,13 +36,6 @@ use yii\helpers\Html;
             $model->pricelist();
         ?>
 </div>
-
-</body>
-</html>
-
-
-
-
 
 </body>
 </html>
