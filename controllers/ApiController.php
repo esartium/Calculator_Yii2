@@ -42,6 +42,5 @@ class ApiController extends \yii\rest\Controller
         if ($type == 'raw_types') {
             return Raw_types::find()->all();
         }   
-
     }
 }
