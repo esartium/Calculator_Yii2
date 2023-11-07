@@ -12,17 +12,17 @@ class m231103_151241_create_raw_types_table extends Migration
         ]);
 
         $this->insert('raw_types', [
-            'id' => 1,
+            
             'raw_types' => 'соя'
         ]);
 
         $this->insert('raw_types', [
-            'id' => 2,
+            
             'raw_types' => 'жмых'
         ]);
 
         $this->insert('raw_types', [
-            'id' => 3,
+            
             'raw_types' => 'шрот'
         ]);
 

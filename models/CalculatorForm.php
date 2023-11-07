@@ -20,31 +20,6 @@ class CalculatorForm extends Model
         ];
         }
 
-        
-        // public function price() {
-        //     switch ($this->raw_types) {
-        //         case 'шрот':
-        //                      $this->stoimost = Shrot::find()
-        //                     ->where(['тоннаж' => $this->tonnage])
-        //                     ->select([$this->month]);            
-        //         break;
-
-        //         case 'жмых':
-        //                     $this->stoimost = Zhmih::find()
-        //                     ->where(['тоннаж' => $this->tonnage])
-        //                     ->select([$this->month]);
-        //         break;    
-
-        //         case 'соя': 
-                    
-        //                     $this->stoimost = Soya::find()
-        //                     ->where(['тоннаж' => $this->tonnage])
-        //                     ->select([$this->month]);
-        //         break;
-        //     }
-        //     return $this->stoimost;
-        // }
-    
         public function pricelist() {
             if ($this->raw_types == 'шрот') {
                 require_once ('../views/site/tables/Shrot.html');

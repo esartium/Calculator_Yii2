@@ -48,6 +48,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'rules' => [
+                'api/v1/json-schema' => 'api/get-spec',
+            ]
         ],
     ],
     'params' => $params,

@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+// use yii\behaviors\TimestampBehavior;
 use Yii;
 
 /**
@@ -53,4 +53,16 @@ class Tonnage extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Prices::class, ['tonnage_id' => 'id']);
     }
+
+    // public function behaviors()
+    // {
+    //     return [
+    //         [
+    //             'class' => TimestampBehavior::className(),
+    //             'createdAtAttribute' => 'created_at',
+    //             'updatedAtAttribute' => 'updated_at',
+    //             'value' => function(){ return date('Y-m-d');},
+    //         ],
+    //     ];
+    // }
 }

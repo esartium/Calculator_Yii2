@@ -8,26 +8,27 @@ public function safeUp()
     {
         $this->createTable('{{%tonnage}}', [
             'id' => $this->primaryKey(),
-            'tonnage'=> $this->integer()->notNull()
+            'tonnage' => $this->integer()->notNull(),
+            // 'created_at' => $this->currDateTime()->notNull(),
         ]);
 
         $this->insert('tonnage', [
-            'id' => 1,
+            
             'tonnage' => 25
         ]);
 
         $this->insert('tonnage', [
-            'id' => 2,
+            
             'tonnage' => 50
         ]);
 
         $this->insert('tonnage', [
-            'id' => 3,
+            
             'tonnage' => 75
         ]);
 
         $this->insert('tonnage', [
-            'id' => 4,
+            
             'tonnage' => 100
         ]);
     }
