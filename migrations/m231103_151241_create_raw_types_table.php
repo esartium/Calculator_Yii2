@@ -9,6 +9,8 @@ class m231103_151241_create_raw_types_table extends Migration
         $this->createTable('{{%raw_types}}', [
             'id' => $this->primaryKey(), 
             'raw_types' => $this->string(5),
+            'created_at' => $this->dateTime()->defaultExpression('CURRENT_TIMESTAMP'),
+            'updated_at' => $this->dateTime()->defaultExpression('CURRENT_TIMESTAMP')
         ]);
 
         $this->insert('raw_types', [

@@ -11,6 +11,8 @@ class m231104_071918_create_prices_table extends Migration
             'tonnage_id' => $this->integer(3)->notNull(),
             'month_id'=> $this->integer(3)->notNull(),
             'prices' => $this->integer(3)->notNull(),
+            'created_at' => $this->dateTime()->defaultExpression('CURRENT_TIMESTAMP'),
+            'updated_at' => $this->dateTime()->defaultExpression('CURRENT_TIMESTAMP')
         ]);
 
         $this->createIndex(
@@ -59,7 +61,6 @@ class m231104_071918_create_prices_table extends Migration
         );
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 1,
                 'month_id' => 1,
@@ -67,7 +68,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
             
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 2,
                 'month_id' => 1,
@@ -75,7 +75,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 3,
                 'month_id' => 1,
@@ -83,7 +82,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 4,
                 'month_id' => 1,
@@ -91,7 +89,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 1,
                 'month_id' => 2,
@@ -99,7 +96,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 2,
                 'month_id' => 2,
@@ -107,7 +103,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 3,
                 'month_id' => 2,
@@ -115,7 +110,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 4,
                 'month_id' => 2,
@@ -123,7 +117,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 1,
                 'month_id' => 3,
@@ -131,7 +124,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 2,
                 'month_id' => 3,
@@ -139,7 +131,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 1,
                 'tonnage_id' => 3,
                 'month_id' => 3,
@@ -147,7 +138,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 4,
                 'month_id' => 3,
@@ -155,7 +145,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 1,
                 'month_id' => 4,
@@ -163,7 +152,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 2,
                 'month_id' => 4,
@@ -171,7 +159,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 3,
                 'month_id' => 4,
@@ -179,7 +166,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 4,
                 'month_id' => 4,
@@ -187,7 +173,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 1,
                 'month_id' => 5,
@@ -195,7 +180,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 2,
                 'month_id' => 5,
@@ -203,7 +187,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 3,
                 'month_id' => 5,
@@ -211,7 +194,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 4,
                 'month_id' => 5,
@@ -219,28 +201,24 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 1,
                 'month_id' => 6,
                 'prices' => 121
             ]);
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 2,
                 'month_id' => 6,
                 'prices' => 118
             ]);
             $this->insert('prices', [
-                
                 'raw_types_id' => 1,
                 'tonnage_id' => 3,
                 'month_id' => 6,
                 'prices' => 137
             ]);
             $this->insert('prices', [
-               
                 'raw_types_id' => 1,
                 'tonnage_id' => 4,
                 'month_id' => 6,
@@ -248,7 +226,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 2,
                 'tonnage_id' => 1,
                 'month_id' => 1,
@@ -256,7 +233,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 2,
                 'tonnage_id' => 2,
                 'month_id' => 1,
@@ -264,7 +240,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 2,
                 'tonnage_id' => 3,
                 'month_id' => 1,
@@ -272,7 +247,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-              
                 'raw_types_id' => 2,
                 'tonnage_id' => 4,
                 'month_id' => 1,
@@ -280,7 +254,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-         
                 'raw_types_id' => 2,
                 'tonnage_id' => 1,
                 'month_id' => 2,
@@ -288,7 +261,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-      
                 'raw_types_id' => 2,
                 'tonnage_id' => 2,
                 'month_id' => 2,
@@ -296,7 +268,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-         
                 'raw_types_id' => 2,
                 'tonnage_id' => 3,
                 'month_id' => 2,
@@ -304,7 +275,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 2,
                 'tonnage_id' => 4,
                 'month_id' => 2,
@@ -312,7 +282,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-              
                 'raw_types_id' => 2,
                 'tonnage_id' => 1,
                 'month_id' => 3,
@@ -320,7 +289,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-              
                 'raw_types_id' => 2,
                 'tonnage_id' => 2,
                 'month_id' => 3,
@@ -328,7 +296,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-          
                 'raw_types_id' => 2,
                 'tonnage_id' => 3,
                 'month_id' => 3,
@@ -336,7 +303,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 2,
                 'tonnage_id' => 4,
                 'month_id' => 3,
@@ -344,31 +310,27 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 2,
                 'tonnage_id' => 1,
                 'month_id' => 4,
                 'prices' => 137
             ]);
 
-            $this->insert('prices', [
-           
+            $this->insert('prices', [           
                 'raw_types_id' => 2,
                 'tonnage_id' => 2,
                 'month_id' => 4,
                 'prices' => 147
             ]);
 
-            $this->insert('prices', [
-            
+            $this->insert('prices', [            
                 'raw_types_id' => 2,
                 'tonnage_id' => 3,
                 'month_id' => 4,
                 'prices' => 143
             ]);
 
-            $this->insert('prices', [
-                
+            $this->insert('prices', [               
                 'raw_types_id' => 2,
                 'tonnage_id' => 4,
                 'month_id' => 4,
@@ -376,7 +338,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 2,
                 'tonnage_id' => 1,
                 'month_id' => 5,
@@ -384,7 +345,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 2,
                 'tonnage_id' => 2,
                 'month_id' => 5,
@@ -392,7 +352,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-            
                 'raw_types_id' => 2,
                 'tonnage_id' => 3,
                 'month_id' => 5,
@@ -400,7 +359,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-            
                 'raw_types_id' => 2,
                 'tonnage_id' => 4,
                 'month_id' => 5,
@@ -408,7 +366,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-              
                 'raw_types_id' => 2,
                 'tonnage_id' => 1,
                 'month_id' => 6,
@@ -416,7 +373,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 2,
                 'tonnage_id' => 2,
                 'month_id' => 6,
@@ -424,7 +380,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-             
                 'raw_types_id' => 2,
                 'tonnage_id' => 3,
                 'month_id' => 6,
@@ -432,7 +387,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 2,
                 'tonnage_id' => 4,
                 'month_id' => 6,
@@ -440,7 +394,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
     
             $this->insert('prices', [
-                
                 'raw_types_id' => 3,
                 'tonnage_id' => 1,
                 'month_id' => 1,
@@ -448,7 +401,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-            
                 'raw_types_id' => 3,
                 'tonnage_id' => 2,
                 'month_id' => 1,
@@ -456,7 +408,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-           
                 'raw_types_id' => 3,
                 'tonnage_id' => 3,
                 'month_id' => 1,
@@ -464,7 +415,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 3,
                 'tonnage_id' => 4,
                 'month_id' => 1,
@@ -472,7 +422,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-           
                 'raw_types_id' => 3,
                 'tonnage_id' => 1,
                 'month_id' => 2,
@@ -480,7 +429,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-              
                 'raw_types_id' => 3,
                 'tonnage_id' => 2,
                 'month_id' => 2,
@@ -488,7 +436,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-             
                 'raw_types_id' => 3,
                 'tonnage_id' => 3,
                 'month_id' => 2,
@@ -496,7 +443,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 3,
                 'tonnage_id' => 4,
                 'month_id' => 2,
@@ -504,7 +450,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-             
                 'raw_types_id' => 3,
                 'tonnage_id' => 1,
                 'month_id' => 3,
@@ -512,7 +457,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-             
                 'raw_types_id' => 3,
                 'tonnage_id' => 2,
                 'month_id' => 3,
@@ -520,7 +464,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 3,
                 'tonnage_id' => 3,
                 'month_id' => 3,
@@ -528,7 +471,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 3,
                 'tonnage_id' => 4,
                 'month_id' => 3,
@@ -536,7 +478,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-             
                 'raw_types_id' => 3,
                 'tonnage_id' => 1,
                 'month_id' => 4,
@@ -544,7 +485,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-            
                 'raw_types_id' => 3,
                 'tonnage_id' => 2,
                 'month_id' => 4,
@@ -552,7 +492,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-         
                 'raw_types_id' => 3,
                 'tonnage_id' => 3,
                 'month_id' => 4,
@@ -560,7 +499,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-              
                 'raw_types_id' => 3,
                 'tonnage_id' => 4,
                 'month_id' => 4,
@@ -568,7 +506,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 3,
                 'tonnage_id' => 1,
                 'month_id' => 5,
@@ -576,7 +513,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 3,
                 'tonnage_id' => 2,
                 'month_id' => 5,
@@ -584,7 +520,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-               
                 'raw_types_id' => 3,
                 'tonnage_id' => 3,
                 'month_id' => 5,
@@ -592,7 +527,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-              
                 'raw_types_id' => 3,
                 'tonnage_id' => 4,
                 'month_id' => 5,
@@ -600,7 +534,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-         
                 'raw_types_id' => 3,
                 'tonnage_id' => 1,
                 'month_id' => 6,
@@ -608,7 +541,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-                
                 'raw_types_id' => 3,
                 'tonnage_id' => 2,
                 'month_id' => 6,
@@ -616,7 +548,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-           
                 'raw_types_id' => 3,
                 'tonnage_id' => 3,
                 'month_id' => 6,
@@ -624,7 +555,6 @@ class m231104_071918_create_prices_table extends Migration
             ]);
 
             $this->insert('prices', [
-           
                 'raw_types_id' => 3,
                 'tonnage_id' => 4,
                 'month_id' => 6,

@@ -4,19 +4,6 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "prices".
- *
- * @property int $id
- * @property int $raw_types_id
- * @property int $tonnage_id
- * @property int $month_id
- * @property int $prices
- *
- * @property Month $month
- * @property Raw_types $raw_types
- * @property Tonnage $tonnage
- */
 class Prices extends \yii\db\ActiveRecord
 {
     public static function tableName()
@@ -35,9 +22,6 @@ class Prices extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [

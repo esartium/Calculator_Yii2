@@ -63,8 +63,7 @@ class ApiCalculateForm extends Model
             ->andWhere(['=', 'month_id', $montId])
             ->andWhere(['=', 'tonnage_id', $tonnageId])
             ->andWhere(['=', 'raw_types_id', $rawId])
-            ->one()
-        ;
+            ->one();
 
         if (empty($prices) === true) {
             throw new NotFoundHttpException("Цена для значений $this->month $this->tonnage $this->raw_tupes не найдена в базе");
