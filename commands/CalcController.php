@@ -82,8 +82,6 @@ class CalcController extends Controller {
                         ->andWhere(['like', 'raw_types_id', $this->rawTypesID])
                         ->scalar();
 
-        // $prices = \Yii::$app->params['prices'];
-        // $this->stoimost = $prices[$this->raw_types][$this->month][$this->tonnazh];
         echo "\033[36m => СТОИМОСТЬ: " . $this->stoimost . "\n";
         echo "\033[92m стоимость рассчитана с помощью таблицы: " . "\n";
         if ($this->raw_types == 'шрот') {
@@ -138,5 +136,5 @@ class CalcController extends Controller {
             return ExitCode::OK; 
         }
         }
-        } //главная скобка
+        } 
 
