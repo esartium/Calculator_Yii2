@@ -9,6 +9,5 @@ class SpaController extends Controller
     public function actionIndex()
     {
         return require_once \Yii::getAlias('@app/web/index.html');
-        // return require_once \Yii::getAlias('@app') . '/web/index.html';
     }
 }
