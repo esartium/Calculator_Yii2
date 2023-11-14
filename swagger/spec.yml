@@ -14,7 +14,7 @@ info:
    Разработчик [{Софья}]({https://gitlab-dev.efko.ru/cr_ovr_web10})
     
 servers:
-  - url: http://localhost:8888/latest_dz_web/calculator-yii2
+  - url: http://localhost:8888/latest_dz_web/calculator-yii2/web/
     
 tags:
   - name: calculate

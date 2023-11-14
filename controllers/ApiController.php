@@ -61,37 +61,4 @@ class ApiController extends \yii\rest\Controller
                 return Raw_types::find()->all();
             }   
     }
-
-    public function actionMonths()
-    {
-        $months = Month::find()->all();
-
-        foreach($months as &$month) {
-            $month = $month->month;
-        }
-
-        return $months;
-    }
-
-    public function actionTonnages()
-    {
-        $months = Tonnage::find()->all();
-
-        foreach($months as &$month) {
-            $month = $month->tonnage;
-        }
-
-        return $months;
-    }
-
-    public function actionTypes()
-    {
-        $months = Raw_types::find()->all();
-
-        foreach($months as &$month) {
-            $month = $month->raw_types;
-        }
-
-        return $months;
-    }
 }
