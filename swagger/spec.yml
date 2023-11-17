@@ -28,7 +28,7 @@ tags:
   - name: prices
     description: Реестр прайсов
 paths:
-  /api/v1/months:
+  /months/months:
     get:
       tags:
         - months
@@ -63,7 +63,7 @@ paths:
         '401':
           description: Не авторизован
           
-  /api/v1/tonnages:
+  /tonnages/tonnages:
     get:
       tags:
         - tonnages
@@ -97,7 +97,7 @@ paths:
         '401':
           description: Не авторизован
     
-  /api/v1/types:
+  /types/types:
     get:
       tags:
         - types
@@ -132,7 +132,7 @@ paths:
         '401':
           description: Не авторизован
       
-  /api/v1/calculate:
+  /calculate/calculate:
     get:
       tags:
         - calculate

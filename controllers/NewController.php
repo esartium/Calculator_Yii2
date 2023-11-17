@@ -6,8 +6,8 @@ use yii\web\Controller;
 
 class NewController extends Controller
 {
-    public function actionIndex()
+    public function actionIdx()
     {
-        return require_once \Yii::getAlias('@app/web/newindex.html');
+        return require_once \Yii::getAlias('@app/web/idx.html');
     }
 }
