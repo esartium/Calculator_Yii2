@@ -1,21 +1,70 @@
+
+
+
 // Vue.createApp({
 //     data: () => ({
-//        requestMonthURL: 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
+//         items: [
+//             '1',
+//             '2',
+//             '3'
+//         ],
+//         show: false
 //    }),
 //    methods: {
-    // сделать тут функцию, которая делает переменную regAuthTitle равной 
-    // либо "регистрация", либо "вход"
-    
-    
+//     // сделать тут функцию, которая делает переменную regAuthTitle равной 
+//     // либо "регистрация", либо "вход"
 //    }
    
-// }).mount('#app')
+// }).mount('#megaApp')
+
+// new Vue({
+//     el: '#megaApp',
+//     data: {
+//         items: [
+//             'bebebe',
+//             'bababa',
+//             'bububu'
+//         ],
+//         show: false
+//     }
+// })
+
 
 const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
 const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
 const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
 
 const requestCalcURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/api/calculate-price'
+
+function sendGetRequest(method, url) {
+    return fetch(url).then(response => {
+        return response.json()
+    })
+}
+
+let months;
+
+sendGetRequest('GET', requestMonthURL)
+.then(data => {
+    months = data
+    console.log(months)
+})
+.catch(err => console.log(err))
+
+
+
+sendGetRequest('GET', requestTonnagesURL)
+.then(data => console.log(data))
+.catch(err => console.log(err))
+
+sendGetRequest('GET', requestTypesURL)
+.then(data => console.log(data))
+.catch(err => console.log(err))
+
+
+
+
+
 
 // function sendMonthsRequest(method, url) {
     
@@ -121,31 +170,35 @@ const requestCalcURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
 
-// fetch:
+// function sendMonthsRequestF(method, url) {
+//     return fetch(url).then(response => {
+//         return response.json()
+//     })
+// }
 
-function sendMonthsRequestF(method, url) {
-    return fetch(url).then(response => {
-        return response.json()
-    })
+
+let chooseType;
+let chooseMonth;
+let chooseTonnage;
+
+function getType(event) {
+    chooseType = JSON.stringify(event.target.innerHTML);
+    console.log(chooseType);
+}
+function getTonnage(event) {
+    chooseTonnage = event.target.innerHTML;
+    console.log(chooseTonnage);
+}
+function getMonth(event) {
+    chooseMonth = JSON.stringify(event.target.innerHTML);
+    console.log(chooseMonth);
 }
 
-function sendGetRequest(method, url) {
-    return fetch(url).then(response => {
-        return response.json()
-    })
+let body = {
+    tonnage: chooseTonnage,
+    raw_types: chooseType,
+    month: chooseMonth
 }
-
-sendGetRequest('GET', requestMonthURL)
-.then(data => console.log(data))
-.catch(err => console.log(err))
-
-sendGetRequest('GET', requestTonnagesURL)
-.then(data => console.log(data))
-.catch(err => console.log(err))
-
-sendGetRequest('GET', requestTypesURL)
-.then(data => console.log(data))
-.catch(err => console.log(err))
 
 const headers = {
     'Content-type': 'application/json'
@@ -154,19 +207,34 @@ const headers = {
 function sendCalcRequestF(method, url, body) {
     return fetch(url, {
         method: method,
-        body: JSON.stringify(body),
+        body: body,
         headers: headers
     }).then(response => {
         return response.json()
     })
 }
 
-const body = {
+const body2 = {
     tonnage: 25,
     raw_types: "шрот",
     month: "январь"
 }
 
-sendCalcRequestF('POST', requestCalcURL, body)
-.then(data => console.log(data))
-.catch(err => console.log(err))
+sendCalcRequestF('POST', requestCalcURL, body2)
+                .then(data => console.log(data))
+                .catch(err => console.log(err))
+// sendCalcRequestF('POST', requestCalcURL, body)
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
+
+
+
+
+
+
+
+
+
+
+
+

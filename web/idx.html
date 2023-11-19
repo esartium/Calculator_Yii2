@@ -1,59 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link type="image/x-icon" href="/favicon.ico" rel="icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор</title>
 
-    
-    
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin></script>
 
-    <link rel="stylesheet" href="../app-new/style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
+    <div class="container-fluid"> 
+    <div class="row">
+        <div class="col-md-12">
+            <div id="megaApp">
+                <nav>
+                    <transition name="fade" mode="out-in"> 
+                        <!-- <i class="material-icons menu" v-if="!show" @click="show = !show" key="menu">menu</i>
+                        <i class="material-icons clear" v-else @click="show = !show" key="clear">clear</i> -->
+                        <span v-if="!show" @click="show = !show" key="menu">профиль</span>
+                        <span v-else @click="show = !show" key="clear">иванов и.и.</span>
+                    </transition>
+                    <transition name="fade">
+                        <ul v-if="show">
+                            <li v-for="item in profile"> {{ item }} </li>
+                        </ul>
+                    </transition>
+                </nav>
+                </div>
+        </div>
+    </div>
+</div>
+
+   
+
+    <div class="container-fluid"> 
+    <div class="row">
+        <div class="col-md-12">
     <div class="container" id="app">
-        <div class="card">
+
+        <div class="card" id="appone">
             <h1 id="title">калькулятор расчёта стоимости доставки</h1>
             
-            <div class="selector" id="selector1">
-                <select class="js-choice">
-                    <option>тип сырья</option>
-                    <option>шрот</option>
-                    <option>жмых</option>
-                    <option>соя</option>
-                </select>
+            <div class="selector" id="selector_one">
+                <div>
+                    <transition name="tr" mode="out-in"> 
+                        <span v-if="!show1" @click="show1 = !show1" key="raw_type">тип сырья</span>
+                        <span v-else @click="show1 = !show1" key="select_raw_type">выберите тип сырья:</span>
+                    </transition>
+                    <transition name="tr">
+                        <ul v-if="show1">
+                            <li onclick="getType(event)" v-for="i in types"> {{ i }} </li>
+                        </ul>
+                    </transition>
+                    </div>
             </div>
 
-            <div class="selector" id="selector2">
-                <select class="js-choice">
-                    <option>тоннаж</option>
-                    <option>25</option>
-                    <option>50</option>
-                    <option>75</option>
-                    <option>75</option>
-                </select>
+            
+
+            <div class="selector" id="selector_two">
+                <div>
+                    <transition name="tr" mode="out-in"> 
+                        <span v-if="!show2" @click="show2 = !show2" key="raw_type">месяц</span>
+                        <span v-else @click="show2 = !show2" key="select_raw_type">выберите месяц:</span>
+                    </transition>
+                    <transition name="tr">
+                        <ul v-if="show2">
+                            <li onclick="getMonth(event)" v-for="j in months"> {{ j }} </li>
+                        </ul>
+                    </transition>
+                    </div>
             </div>
 
-            <div class="selector" id="selector3">
-                <select class="js-choice">
-                    <option>месяц</option>
-                    <option>январь</option>
-                    <option>февраль</option>
-                    <option>август</option>
-                    <option>сентябрь</option>
-                    <option>октябрь</option>
-                    <option>ноябрь</option>
-                </select>
+            <div class="selector" id="selector_sri">
+                <div>
+                    <transition name="tr" mode="out-in"> 
+                        <span v-if="!show3" @click="show3 = !show3" key="raw_type">тоннаж</span>
+                        <span v-else @click="show3 = !show3" key="select_raw_type">выберите тоннаж:</span>
+                    </transition>
+                    <transition name="tr">
+                        <ul v-if="show3">
+                            <li onclick="getTonnage(event)" v-for="k in tonnages"> {{ k }} </li>
+                        </ul>
+                    </transition>
+                    </div>
             </div>
         
-        </div>
-    </div> 
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../app-new/app.js"></script>
 
+            <div id="button">
+                <button class="btn btn-success" 
+                onclick="
+                sendCalcRequestF('POST', requestCalcURL, body)
+                .then(data => console.log(data))
+                .catch(err => console.log(err))
+                ">
+                рассчитать
+            </button>
+            </div>
+        </div>
+        
+    </div> 
+</div>
+    
+   </div></div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../app-new/navbar.js"></script>
+    <script src="../app-new/selector.js"></script>
+    <script src="../app-new/app.js"></script>
 </body>
 </html>
