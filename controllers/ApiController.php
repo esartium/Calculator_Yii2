@@ -14,7 +14,6 @@ use Yii;
 
 class ApiController extends \yii\rest\Controller
 {
-
     public function behaviors()
     {
         return ArrayHelper::merge(parent::behaviors(), [
@@ -27,6 +26,7 @@ class ApiController extends \yii\rest\Controller
             ],
         ]);
     }
+
     public function actionCalculatePrice() {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
@@ -45,6 +45,8 @@ class ApiController extends \yii\rest\Controller
         return [
             'price' => $model->calculatePrice(),
             'price_list' => [$model->raw_types => $model->generatePriceList()],
+            // 'request' => var_dump($request),
+            // 'Yii::$app->request->getRawBody()' => var_dump(Yii::$app->request->getRawBody())
         ];
     }
 

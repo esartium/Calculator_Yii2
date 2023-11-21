@@ -1,35 +1,4 @@
 
-
-
-// Vue.createApp({
-//     data: () => ({
-//         items: [
-//             '1',
-//             '2',
-//             '3'
-//         ],
-//         show: false
-//    }),
-//    methods: {
-//     // сделать тут функцию, которая делает переменную regAuthTitle равной 
-//     // либо "регистрация", либо "вход"
-//    }
-   
-// }).mount('#megaApp')
-
-// new Vue({
-//     el: '#megaApp',
-//     data: {
-//         items: [
-//             'bebebe',
-//             'bababa',
-//             'bububu'
-//         ],
-//         show: false
-//     }
-// })
-
-
 const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
 const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
 const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
@@ -42,16 +11,12 @@ function sendGetRequest(method, url) {
     })
 }
 
-let months;
-
 sendGetRequest('GET', requestMonthURL)
 .then(data => {
     months = data
     console.log(months)
 })
 .catch(err => console.log(err))
-
-
 
 sendGetRequest('GET', requestTonnagesURL)
 .then(data => console.log(data))
@@ -61,143 +26,32 @@ sendGetRequest('GET', requestTypesURL)
 .then(data => console.log(data))
 .catch(err => console.log(err))
 
+let chooseType = null;
+let chooseMonth = null;
+let chooseTonnage = null;
 
-
-
-
-
-// function sendMonthsRequest(method, url) {
-    
-// return new Promise( (resolve, reject) => {
-//     const xhrMonths = new XMLHttpRequest()
-    
-//     xhrMonths.open(method, url)
-    
-//     xhrMonths.onload = () => {
-//         if (xhrMonths.status >= 400) {
-//             reject(xhrMonths.response)
-//         }
-//         resolve(JSON.parse(xhrMonths.response))
-//     }
-
-//     xhrMonths.onerror = () => {
-//         reject('лох')
-//     }
-    
-//     xhrMonths.send()
-// })
-// }
-
-// function sendTonnagesRequest(method, url) {
-//     return new Promise( (resolve, reject) => {
-//     const xhrTonnages = new XMLHttpRequest()
-
-//     xhrTonnages.open(method, url)
-
-//     xhrTonnages.onload = () => {
-//         if (xhrTonnages.status >= 400) {
-//             reject(xhrTonnages.response)
-//         }
-//         resolve(JSON.parse(xhrTonnages.response))
-//     }
-
-//     xhrTonnages.onerror = () => {
-//         reject('лох')
-//     }
-
-//     xhrTonnages.send()
-// })
-// }
-
-// function sendTypesRequest(method, url) {
-//     return new Promise( (resolve, reject) => {
-//     const xhrTypes = new XMLHttpRequest()
-
-//     xhrTypes.open(method, url)
-
-//     xhrTypes.onload = () => {
-//         if (xhrTypes.status >= 400) {
-//             reject(xhrTypes.response)
-//         }
-//         resolve(JSON.parse(xhrTypes.response))
-//     }
-
-//     xhrTypes.onerror = () => {
-//         reject('лох')
-//     }
-
-//     xhrTypes.send()
-// })
-// }
-
-// function sendCalcRequest(method, url, body) {
-//     return new Promise( (resolve, reject) => {
-//         const xhrCalc = new XMLHttpRequest()
-        
-//         xhrCalc.open(method, url)
-
-//         xhrCalc.responseType = 'json'
-//         xhrCalc.setRequestHeader('Content-Type','application/json')
-        
-//         xhrCalc.onload = () => {
-//             if (xhrCalc.status >= 400) {
-//                 reject(xhrCalc.response)
-//             }
-//             resolve(JSON.stringify(xhrCalc.response))
-//         }
-    
-//         xhrCalc.onerror = () => {
-//             reject('лох')
-//         }
-        
-//         xhrCalc.send(JSON.stringify(body))
-//     })
-// }
-
-// sendMonthsRequest('GET', requestMonthURL)
-// .then(data => console.log(data))
-// .catch(err => console.log(err))
-
-// sendTonnagesRequest('GET', requestTonnagesURL)
-// .then(data => console.log(data))
-// .catch(err => console.log(err))
-
-// sendTypesRequest('GET', requestTypesURL)
-// .then(data => console.log(data))
-// .catch(err => console.log(err))
-
-// sendCalcRequest('POST', requestCalcURL, body)
-// .then(data => console.log(data))
-// .catch(err => console.log(err))
-
-// function sendMonthsRequestF(method, url) {
-//     return fetch(url).then(response => {
-//         return response.json()
-//     })
-// }
-
-
-let chooseType;
-let chooseMonth;
-let chooseTonnage;
-
-function getType(event) {
-    chooseType = JSON.stringify(event.target.innerHTML);
-    console.log(chooseType);
+let body = {
+    tonnage: '',
+    raw_types: '',
+    month: ''
 }
+
 function getTonnage(event) {
     chooseTonnage = event.target.innerHTML;
     console.log(chooseTonnage);
-}
-function getMonth(event) {
-    chooseMonth = JSON.stringify(event.target.innerHTML);
-    console.log(chooseMonth);
+    body.tonnage = chooseTonnage
 }
 
-let body = {
-    tonnage: chooseTonnage,
-    raw_types: chooseType,
-    month: chooseMonth
+function getType(event) {
+    chooseType = event.target.innerHTML;
+    console.log(chooseType);
+    body.raw_types = chooseType
+    }
+
+function getMonth(event) {
+    chooseMonth = event.target.innerHTML;
+    console.log(chooseMonth);
+    body.month = chooseMonth
 }
 
 const headers = {
@@ -207,7 +61,7 @@ const headers = {
 function sendCalcRequestF(method, url, body) {
     return fetch(url, {
         method: method,
-        body: body,
+        body: JSON.stringify(body),
         headers: headers
     }).then(response => {
         return response.json()
@@ -223,9 +77,14 @@ const body2 = {
 sendCalcRequestF('POST', requestCalcURL, body2)
                 .then(data => console.log(data))
                 .catch(err => console.log(err))
-// sendCalcRequestF('POST', requestCalcURL, body)
-// .then(data => console.log(data))
-// .catch(err => console.log(err))
+
+                function echo() {
+                    console.log("body", body)
+                    console.log("JSON.stringify(body)", JSON.stringify(body))
+                    console.log("body2", body2)
+                    console.log("JSON.stringify(body2)", JSON.stringify(body2))
+                }
+                
 
 
 

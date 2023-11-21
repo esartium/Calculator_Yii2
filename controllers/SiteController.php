@@ -8,37 +8,14 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use app\models\LoginForm;
+use app\models\SignupForm;
 
 use app\models\Soya;
 use app\models\Zhmih;
 use app\models\Shrot;
 class SiteController extends Controller
-{
-    
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-   
+{  
     public function actions()
     {
         return [
@@ -101,7 +78,91 @@ class SiteController extends Controller
 
             return $this->render('calculator', ['model' => $model]);
         } 
-            
+        public function behaviors()
+        {
+            return [
+                'access' => [
+                    'class' => AccessControl::class,
+                    'only' => ['idx', 'lichniy-cabinet', 'login', 'logout'],
+                    'rules' => [
+                        [
+                            'actions' => ['idx'],
+                            'allow' => true,
+                            'roles' => ['admin'],
+                        ],
+                        [
+                            'actions' => ['lichniy-cabinet'],
+                            'allow' => true,
+                            'roles' => ['admin'],
+                        ],
+                        [
+                            'actions' => ['logout'],
+                            'allow' => true,
+                            'roles' => ['@'],
+                        ],
+                        [
+                            'actions' => ['login'],
+                            'allow' => true,
+                            'roles' => ['?'],
+                        ],
+                        
+                    ],
+                ],
+                'verbs' => [
+                    'class' => VerbFilter::class,
+                    'actions' => [
+                        'logout' => ['post'],
+                    ],
+                ],
+            ];
+        }
+    
+        public function actionLogin()
+        {
+            if (!Yii::$app->user->isGuest) {
+                return $this->render('idx');
+            }
+    
+            $model = new LoginForm();
+            if ($model->load(Yii::$app->request->post()) && $model->login()) {
+                return $this->render('lk');
+            }
+    
+            $model->password = '';
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
+    
+        public function actionLogout()
+        {
+            Yii::$app->user->logout();
+    
+            return require_once \Yii::getAlias('@app/web/idx.html');
+        }
+
+        public function actionSignup() {
+            $model = new SignupForm();
+
+            if ($model->load(Yii::$app->request->post()) && $model->signup()) {
+                return $this->render('login');
+            }
+
+            return $this->render('signup', [
+                'model' => $model,
+            ]);
+
+        }
+    
+    
+        public function actionIdx()
+        {
+            return require_once \Yii::getAlias('@app/web/idx.html');
+        }
+    
+        public function actionLichniyCabinet() {
+            return $this->render('lk');
+        }
 }
     
    

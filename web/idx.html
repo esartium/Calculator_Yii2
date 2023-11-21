@@ -14,21 +14,7 @@
     <div class="container-fluid"> 
     <div class="row">
         <div class="col-md-12">
-            <div id="megaApp">
-                <nav>
-                    <transition name="fade" mode="out-in"> 
-                        <!-- <i class="material-icons menu" v-if="!show" @click="show = !show" key="menu">menu</i>
-                        <i class="material-icons clear" v-else @click="show = !show" key="clear">clear</i> -->
-                        <span v-if="!show" @click="show = !show" key="menu">профиль</span>
-                        <span v-else @click="show = !show" key="clear">иванов и.и.</span>
-                    </transition>
-                    <transition name="fade">
-                        <ul v-if="show">
-                            <li v-for="item in profile"> {{ item }} </li>
-                        </ul>
-                    </transition>
-                </nav>
-                </div>
+            
         </div>
     </div>
 </div>
@@ -94,7 +80,9 @@
                 sendCalcRequestF('POST', requestCalcURL, body)
                 .then(data => console.log(data))
                 .catch(err => console.log(err))
-                ">
+                "
+                ondblclick="echo()"
+                >
                 рассчитать
             </button>
             </div>
@@ -105,7 +93,7 @@
     
    </div></div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../app-new/navbar.js"></script>
+    
     <script src="../app-new/selector.js"></script>
     <script src="../app-new/app.js"></script>
 </body>
