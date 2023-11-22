@@ -34,6 +34,11 @@ class UserIdentity extends User implements \yii\web\IdentityInterface
         return static::findOne(['username' => $username]);
     }
 
+    public static function findByEmail($email)
+    {
+        return static::findOne(['email' => $email]);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -71,5 +76,14 @@ class UserIdentity extends User implements \yii\web\IdentityInterface
 
     public function create() {
         return $this->save(false);
+
+        // if($user->save()) {
+        //     $auth = Yii::$app->authManager;
+        //     $userRole = $auth->getRole('user');
+        //     $auth->assign($userRole, $user->getId());
+
+        // return $user;
+        // }
     }
+
 }

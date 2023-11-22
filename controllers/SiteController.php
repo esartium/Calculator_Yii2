@@ -11,6 +11,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\SignupForm;
 
+use app\models\History;
+
 use app\models\Soya;
 use app\models\Zhmih;
 use app\models\Shrot;
@@ -125,7 +127,7 @@ class SiteController extends Controller
     
             $model = new LoginForm();
             if ($model->load(Yii::$app->request->post()) && $model->login()) {
-                return $this->render('lk');
+                return $this->render('lk', []);
             }
     
             $model->password = '';
@@ -171,6 +173,13 @@ class SiteController extends Controller
         public function actionLichniyCabinet() {
             return $this->render('lk');
         }
+
+        // public function actionAddCalcNote() {
+        //     $model = new History();
+        //     if ($model->load(Yii::$app->request->post())) {
+
+        //     }
+        // }
 }
     
    

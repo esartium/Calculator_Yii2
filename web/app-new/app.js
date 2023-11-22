@@ -110,8 +110,11 @@ function req() {
         priceList = data.price_list;
         console.log(data);
         div.innerHTML = 'Стоимость расчёта: ' + priceRes;
+        return priceRes;
     })
     .catch(err => console.log(err))
+
+    vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
 }
 
 function show(chooseType) {
@@ -132,7 +135,11 @@ if (chooseType == 'шрот') {
 }
 }
 
-// show(chooseType);
+function vivod(chooseMonth, chooseTonnage, chooseType, priceRes) {
+    console.log("расчет: ", chooseMonth, chooseTonnage, chooseType, priceRes)
+}
+
+
     
 
 

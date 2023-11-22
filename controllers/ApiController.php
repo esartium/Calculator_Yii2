@@ -8,6 +8,7 @@ use app\models\Tonnage;
 use app\models\ApiCalculateForm;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
+use app\models\Calculatehistory;
 
 use Yii;
 
@@ -47,6 +48,15 @@ class ApiController extends \yii\rest\Controller
         if ($model->validate() === false) {
             return $model->getErrors();
         }
+
+        // $table = new Calculatehistory;
+
+        // $table->insert('calculate_history', [
+        //     'tonnage' => $model->tonnage,
+        //     'month' => $model->month,
+        //     'raw_types' => $model->raw_types,
+        //     'price' => $model->calculatePrice
+        // ]);
 
         return [
             'price' => $model->calculatePrice(),
