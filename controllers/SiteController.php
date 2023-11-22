@@ -88,12 +88,12 @@ class SiteController extends Controller
                         [
                             'actions' => ['idx'],
                             'allow' => true,
-                            'roles' => ['admin'],
+                            'roles' => ['?'],
                         ],
                         [
                             'actions' => ['lichniy-cabinet'],
                             'allow' => true,
-                            'roles' => ['admin'],
+                            'roles' => ['@'],
                         ],
                         [
                             'actions' => ['logout'],
@@ -120,7 +120,7 @@ class SiteController extends Controller
         public function actionLogin()
         {
             if (!Yii::$app->user->isGuest) {
-                return $this->render('idx');
+                return $this->render('login');
             }
     
             $model = new LoginForm();

@@ -57,7 +57,7 @@ class SignupForm extends Model
     public function addUser() {
         $model = new Usernew();
 
-        $this->username = $model->insert('user', [
+        $model->insert('user', [
             'username' => $this->username,
             'email' => $this->email,
             'password' => $this->password,

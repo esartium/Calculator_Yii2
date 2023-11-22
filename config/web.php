@@ -24,8 +24,8 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'app\models\UserIdentity',
+            'enableAutoLogin' => true, //это про куки(восстановление сессии)
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

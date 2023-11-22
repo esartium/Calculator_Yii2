@@ -70,12 +70,14 @@ class LoginForm extends Model
      *
      * @return User|null
      */
-    public function getUser()
+    public function getUser() // эта функция возвращает нам самого юзера (объект модели)
     {
-        if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+        if ($this->_user === false) { //если юзер еще не заполнен, то...
+            $this->_user = UserIdentity::findByUsername($this->username); //...то мы пытаемся найти юзера по юзернейму, который пользователь ввел в форму
         }
 
         return $this->_user;
+
+        // по умолчанию у нас юзер=false, то есть не найден, следовательно, первое обращение к этому методу заставит его искать юзера по имени
     }
 }
