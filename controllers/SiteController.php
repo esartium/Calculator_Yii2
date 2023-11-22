@@ -138,7 +138,11 @@ class SiteController extends Controller
         {
             Yii::$app->user->logout();
     
-            return require_once \Yii::getAlias('@app/web/idx.html');
+            // return require_once \Yii::getAlias('@app/web/../views/site/login.php');
+            $model = new LoginForm();
+            return $this->render('login', [
+                'model' => $model,
+            ]);
         }
 
         public function actionSignup() {
