@@ -24,6 +24,7 @@ Vue.createApp({
         show1: false,
         show2: false,
         show3: false,
+        show4: false,
         // // chooseType: '',
         // chooseMonth: '',
         // chooseTonnage: '',
@@ -40,40 +41,7 @@ Vue.createApp({
 
    }),
    methods: {
-
-    // getType(event) {
-    //     this.chooseType = event.target.innerHTML;
-    //     console.log(this.chooseType);
-    // },
-    // getMonth(event) {
-    //     this.chooseMonth = event.target.innerHTML;
-    //     console.log(this.chooseMonth);
-    // },
-    // getTonnage(event) {
-    //     this.chooseTonnage = event.target.innerHTML;
-    //     console.log(this.chooseTonnage);
-    // },
-
-    // calc(event) {
-    //     console.log(this.chooseMonth, this.chooseTonnage, this.chooseType)
-    // },
-
-
     
-    
-    // sendCalcRequestF(method, url, body) {
-    //     return fetch(url, {
-    //         method: method,
-    //         body: JSON.stringify(body),
-    //         headers: this.headers
-    //     }).then(response => {
-    //         return response.json()
-    //     })
-    // }
-    
-    
-    // сделать тут функцию, которая делает переменную regAuthTitle равной 
-    // либо "регистрация", либо "вход"
    }
    
 }).mount('#appone')

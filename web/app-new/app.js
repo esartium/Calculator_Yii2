@@ -93,8 +93,47 @@ sendCalcRequestF('POST', requestCalcURL, body2)
                     console.log("body2", body2)
                     console.log("JSON.stringify(body2)", JSON.stringify(body2))
                 }
-                
 
+let priceRes;
+let priceList;
+let div = document.getElementById('res');
+let divPrice = document.getElementById('resPrList')
+
+function req() {
+    sendCalcRequestF('POST', requestCalcURL, {
+        tonnage: chooseTonnage,
+        raw_types: chooseType,
+        month: chooseMonth
+    })
+    .then(data => {
+        priceRes = data.price;
+        priceList = data.price_list;
+        console.log(data);
+        div.innerHTML = 'Стоимость расчёта: ' + priceRes;
+    })
+    .catch(err => console.log(err))
+}
+
+function show(chooseType) {
+if (chooseType == 'шрот') {
+    document.getElementById('shrot').style.opacity = 1;
+    document.getElementById('zhmih').style.opacity = 0;
+    document.getElementById('soya').style.opacity = 0;
+} else if (chooseType == 'жмых') {
+    document.getElementById('shrot').style.opacity = 0;
+    document.getElementById('zhmih').style.opacity = 1;
+    document.getElementById('zhmih').style.cssText = "margin-top: -150px";
+    document.getElementById('soya').style.opacity = 0;
+} else if (chooseType == 'соя') {
+    document.getElementById('shrot').style.opacity = 0;
+    document.getElementById('zhmih').style.opacity = 0;
+    document.getElementById('soya').style.opacity = 1;
+    document.getElementById('soya').style.cssText = "margin-top: -300px";
+}
+}
+
+// show(chooseType);
+    
 
 
 
