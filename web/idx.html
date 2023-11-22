@@ -77,8 +77,13 @@
             <div id="button">
                 <button class="btn btn-success" 
                 onclick="
-                sendCalcRequestF('POST', requestCalcURL, body)
+                sendCalcRequestF('POST', requestCalcURL, {
+                    tonnage: chooseTonnage,
+                    raw_types: chooseType,
+                    month: chooseMonth
+                })
                 .then(data => console.log(data))
+                .then(getRes(data))
                 .catch(err => console.log(err))
                 "
                 ondblclick="echo()"

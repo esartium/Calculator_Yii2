@@ -66,7 +66,7 @@ use yii\helpers\html;
             <?php ActiveForm::end(); ?>
 
             <div style="color:#999;">
-                Чтобы войти как гость, используйте: <br><strong>логин: </strong> guest <br><strong>пароль:</strong> guest.
+                Чтобы использовать калькулятор в гостевом режиме, введите следующие данные: <br><strong>логин: </strong> guest <br><strong>пароль:</strong> guest.
                 <br> Вам будет доступна функция расчёта стоимости доставки без сохранения результатов.
                 
             </div>

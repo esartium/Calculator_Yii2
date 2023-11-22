@@ -5,10 +5,9 @@ const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web
 
 const requestCalcURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/api/calculate-price'
 
-function sendGetRequest(method, url) {
-    return fetch(url).then(response => {
-        return response.json()
-    })
+async function sendGetRequest(method, url) {
+    const response = await fetch(url)
+    return await response.json()
 }
 
 sendGetRequest('GET', requestMonthURL)
@@ -37,7 +36,7 @@ let body = {
 }
 
 function getTonnage(event) {
-    chooseTonnage = event.target.innerHTML;
+    chooseTonnage = Number(event.target.innerHTML);
     console.log(chooseTonnage);
     body.tonnage = chooseTonnage
 }
@@ -58,20 +57,30 @@ const headers = {
     'Content-type': 'application/json'
 }
 
-function sendCalcRequestF(method, url, body) {
-    return fetch(url, {
-        method: method,
-        body: JSON.stringify(body),
-        headers: headers
-    }).then(response => {
-        return response.json()
-    })
-}
+// function sendCalcRequestF(method, url, body) {
+//     return fetch(url, {
+//         method: method,
+//         body: body,
+//         body: JSON.stringify(body),
+//         headers: headers
+//     }).then(response => {
+//         return response.json()
+//     })
+//     }
+
+    async function sendCalcRequestF(method, url, body) {
+        const response = await fetch(url, {
+            method: method,
+            body: JSON.stringify(body),
+            headers: headers
+        })
+        return await response.json()
+        }
 
 const body2 = {
-    tonnage: 25,
-    raw_types: "шрот",
-    month: "январь"
+    tonnage: 50,
+    raw_types: "соя",
+    month: "август"
 }
 
 sendCalcRequestF('POST', requestCalcURL, body2)
