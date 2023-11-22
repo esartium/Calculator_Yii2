@@ -3,14 +3,14 @@
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
 
-/** @var app\models\LoginForm $model */
+/** @var app\models\SignupForm $model */
 
-// use yii\bootstrap5\ActiveForm;
-// use yii\bootstrap5\Html;
+use yii\bootstrap5\ActiveForm;
+use yii\bootstrap5\Html;
 
 use app\models\LoginForm;
-use yii\widgets\ActiveForm;
-use yii\helpers\html;
+// use yii\widgets\ActiveForm;
+// use yii\helpers\html;
 
 // $this->title = 'Login';
 // $this->params['breadcrumbs'][] = $this->title;
@@ -40,7 +40,7 @@ use yii\helpers\html;
         <div class="col-lg-5">
 
             <?php $form = ActiveForm::begin([
-                'id' => 'signup-form',
+                'id' => 'login-form',
                 'fieldConfig' => [
                     'template' => "{label}\n{input}\n{error}",
                     'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
@@ -51,11 +51,11 @@ use yii\helpers\html;
 
             <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-            <?= $form->field($model, 'email')->emailInput() ?>
+            <?= $form->field($model, 'email')->textInput() ?>
 
             <?= $form->field($model, 'password')->passwordInput() ?>
 
-            <?= $form->field($model, 'passconfirm')->passconfirmInput() ?>
+            <?= $form->field($model, 'passconfirm')->passwordInput() ?>
 
             <div class="form-group">
                 <div>

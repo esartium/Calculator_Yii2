@@ -31,8 +31,11 @@ class SignupForm extends Model
             [['username', 'email', 'password', 'passconfirm'], 'required'],
             // rememberMe must be a boolean value
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            // [['password'], 'validatePassword'],
+            [['email'], 'email'],
 
+            // указали, что почта должна быть уникальной; и указали, по отношению к какой таблице и к какому полю этой таблицы она должна быть уникальной:
+            [['email'], 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email'],
         ];
     }
 
@@ -43,26 +46,35 @@ class SignupForm extends Model
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
-    public function validatePassword($attribute, $params)
-    {
-        if (!$this->hasErrors()) {
-            $user = $this->getUser();
 
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
-            }
+    public function signup() {
+        if ($this->validate()) {
+            $user = new UserIdentity;
+            $user->attributes = $this->attributes;
+            return $user->create();
         }
     }
 
-    public function addUser() {
-        $model = new Usernew();
+    // public function validatePassword($attribute, $params)
+    // {
+    //     if (!$this->hasErrors()) {
+    //         $user = $this->getUser();
 
-        $model->insert('user', [
-            'username' => $this->username,
-            'email' => $this->email,
-            'password' => $this->password,
-        ]);
-    }
+    //         if (!$user || !$user->validatePassword($this->password)) {
+    //             $this->addError($attribute, 'Incorrect username or password.');
+    //         }
+    //     }
+    // }
+
+    // public function addUser() {
+    //     $model = new User();
+
+        // $model->insert('user', [
+        //     'username' => $this->username,
+        //     'email' => $this->email,
+        //     'password' => $this->password,
+        // ]);
+    // }
 
     /**
      * Logs in a user using the provided username and password.
