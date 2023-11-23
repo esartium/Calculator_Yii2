@@ -6,8 +6,6 @@ use yii\grid\gridView;
 
 <?php 
 
-echo Html::a('создать новую запись', ['addd'], ['class' => 'btn btn-success']);
-
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [
@@ -21,13 +19,13 @@ echo GridView::widget([
         'template' => '{vieww} {updatee} {deletee}',
             'buttons' => [
                 'vieww' => function($url, $model, $key) {
-                    return Html::a('vieww', $url);
+                    return Html::a('подробнее', $url);
                 },
                 'updatee' => function($url, $model, $key) {
-                    return Html::a('updatee', $url);
+                    return Html::a('редактировать запись', $url);
                 },
                 'deletee' => function($url, $model, $key) {
-                    return Html::a('deletee', $url);
+                    return Html::a('удалить запись', $url);
                 },
             ]
         ]

@@ -241,7 +241,7 @@ class SiteController extends Controller
         }
         public function actionHistoryy() { //страничка с пользователями для user
             $dataProvider = new ActiveDataProvider([
-                'query' => History::find()->select(['calculation_id', 'month', 'raw_types', 'tonnage', 'price'])->from('history')->where(['username' => Yii::$app->user->identity->username]),
+                'query' => History::find()->select(['calculation_id', 'month', 'raw_types', 'tonnage', 'price'])->from('history')->where(['like', 'username', Yii::$app->user->identity->username]),
                 'pagination' => [
                     'pageSize' => 20,
                 ]
