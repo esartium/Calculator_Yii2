@@ -9,7 +9,7 @@
     </transition>
     <transition name="fade">
         <ul v-if="show" class="unordered_list">
-            <li class="list_item" v-for="item in adminProfileOptions" @click="getVal"> {{ item }} </li>
+            <li class="list_item" v-for="item in adminProfileOptions" @click="getVal2"> {{ item }} </li>
         </ul>
     </transition>
 </nav>

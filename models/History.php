@@ -8,22 +8,18 @@ use Yii;
  * This is the model class for table "history".
  *
  * @property int $calculation_id
+ * @property string|null $username
  * @property int $tonnage
  * @property string $month
- * @property string|null $raw_types
+ * @property string $raw_types
  * @property int $price
+ * @property string|null $created_at
  */
 class History extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
-
-     public $tonnage;
-     public $month;
-     public $raw_types;
-
-     public $price;
     public static function tableName()
     {
         return 'history';
@@ -35,8 +31,10 @@ class History extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tonnage', 'month', 'price'], 'required'],
+            [['tonnage', 'month', 'raw_types', 'price'], 'required'],
             [['tonnage', 'price'], 'integer'],
+            [['created_at'], 'safe'],
+            [['username'], 'string', 'max' => 35],
             [['month'], 'string', 'max' => 10],
             [['raw_types'], 'string', 'max' => 5],
         ];
@@ -54,6 +52,7 @@ class History extends \yii\db\ActiveRecord
             'month' => 'Month',
             'raw_types' => 'Raw Types',
             'price' => 'Price',
+            'created_at' => 'Created At',
         ];
     }
 }

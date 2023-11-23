@@ -48,11 +48,28 @@ Vue.createApp({
                 window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/logout'
                 break;
             case 'история расчётов':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/historyy'
+                break;
+        }
+    },
+    getVal2(event) {
+        val = event.target.innerHTML;
+        console.log(val);
+        // return val;
+        switch(val) {
+            case 'профиль':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/'
+                break;
+            case 'пользователи':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
+                break;
+            case 'выход':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/logout'
+                break;
+            case 'история расчётов':
                 window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/history'
                 break;
         }
-
-        
     }
 }
 }).mount('#megaApp')
