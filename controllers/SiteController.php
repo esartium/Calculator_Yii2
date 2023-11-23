@@ -4,7 +4,11 @@ namespace app\controllers;
 
 use app\models\CalculatorForm;
 use Yii;
+
+use yii\data\ActiveDataProvider;
+
 use yii\filters\AccessControl;
+
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
@@ -181,10 +185,52 @@ class SiteController extends Controller
         }
 
         public function actionUsersList() { //страничка с пользователями для админа
-            $rows = User::find()->all(); //получили массив строк
+            $dataProvider = new ActiveDataProvider([
+                'query' => User::find(),
+                'pagination' => [
+                    'pageSize' => 20,
+                ]
+                ]);
 
-            return $this->render('userslist', ['rows' => $rows]);
+            return $this->render('userslist', ['dataProvider' => $dataProvider]);
         }
+        public function actionView($id) { //просмотр данных конкретного пользователя на отдельной странице (для админа)
+            $model = User::findOne($id);
+            
+            return $this->render('view', ['model' => $model]);
+        }
+        public function actionUpdate($id) { //редактирование записи о пользователе (для админа)
+            // как работает сохранение внесённых изменений: нужно сделать проверку, есть ли передаваемый данные, потом загрузить их в модель и вызвать для модели метод сохранения
+
+            $model = User::findOne($id);
+
+            if($model->load(Yii::$app->request->post())) { // Yii::$app->request->post() - это мы получаем из объекта, полученного из пост-запроса то, что было введено в форму; здесь мы проверяем, получили ли мы их
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->id]);
+            } 
+
+            return $this->render('edit', ['model' => $model]);
+        }
+        public function actionAdd() {
+            $model = new User();
+
+            if($model->load(Yii::$app->request->post())) { // Yii::$app->request->post() - это мы получаем из объекта, полученного из пост-запроса то, что было введено в форму; здесь мы проверяем, получили ли мы их
+                $model->save();
+                return $this->redirect(['users-list', 'id' => $model->id]);
+            } 
+
+            return $this->render('edit', ['model' => $model]);
+        }
+        public function actionDelete($id) {
+            $model = User::findOne($id);
+
+            if($model) {
+                $model->delete();
+
+                return $this->redirect(['users-list']);
+            }
+        } 
+
 
         // public function actionAddCalcNote() {
         //     $model = new History();
