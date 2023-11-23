@@ -18,6 +18,12 @@ class History extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+     public $tonnage;
+     public $month;
+     public $raw_types;
+
+     public $price;
     public static function tableName()
     {
         return 'history';

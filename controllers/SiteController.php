@@ -231,13 +231,71 @@ class SiteController extends Controller
             }
         } 
 
+        public function actionHistory() { //страничка с пользователями для админа
+            $dataProvider = new ActiveDataProvider([
+                'query' => History::find(),
+                'pagination' => [
+                    'pageSize' => 20,
+                ]
+                ]);
 
-        // public function actionAddCalcNote() {
+            return $this->render('history', ['dataProvider' => $dataProvider]);
+        }
+        public function actionVieww($id) { //просмотр данных конкретного пользователя на отдельной странице (для админа)
+            $model = History::findOne($id);
+            
+            return $this->render('vieww', ['model' => $model]);
+        }
+        public function actionUpdatee($id) { //редактирование записи о пользователе (для админа)
+            // как работает сохранение внесённых изменений: нужно сделать проверку, есть ли передаваемый данные, потом загрузить их в модель и вызвать для модели метод сохранения
+
+            $model = History::findOne($id);
+
+            if($model->load(Yii::$app->request->post())) { // Yii::$app->request->post() - это мы получаем из объекта, полученного из пост-запроса то, что было введено в форму; здесь мы проверяем, получили ли мы их
+                $model->save();
+                return $this->redirect(['vieww', 'id' => $model->id]);
+            } 
+
+            return $this->render('editt', ['model' => $model]);
+        }
+        public function actionAddd() {
+            $model = new History();
+
+            if($model->load(Yii::$app->request->post())) { // Yii::$app->request->post() - это мы получаем из объекта, полученного из пост-запроса то, что было введено в форму; здесь мы проверяем, получили ли мы их
+                $model->save();
+                return $this->redirect(['history', 'id' => $model->id]);
+            } 
+
+            return $this->render('editt', ['model' => $model]);
+        }
+
+        // public function actionAdddd() {
+        //     Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
+        //     $request = (object)(Yii::$app->request);
         //     $model = new History();
-        //     if ($model->load(Yii::$app->request->post())) {
 
-        //     }
+        //     $model->month = $request->getBodyParam('month');
+        //     $model->raw_types = $request->getBodyParam('raw_types');
+        //     $model->tonnage = $request->getBodyParam('tonnage');
+        //     $model->price = $request->getBodyParam('price');
+        //     $model->save();
+
+        //     return[
+        //         'a' => var_dump($request),
+        //         'b' => $request->month
+        //     ];
         // }
+        public function actionDeletee($id) {
+            $model = History::findOne($id);
+
+            if($model) {
+                $model->delete();
+
+                return $this->redirect(['history']);
+            }
+        } 
+
+        
 
 
 }

@@ -94,6 +94,23 @@ sendCalcRequestF('POST', requestCalcURL, body2)
                     console.log("JSON.stringify(body2)", JSON.stringify(body2))
                 }
 
+let bodyy = {
+    tonnage: '',
+    raw_types: '',
+    month: '',
+    price: ''
+}
+
+const requestHistoryURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/adddd'
+async function sendHistoryRequest(method, url, bodyy) {
+    const response = await fetch(url, {
+        method: method,
+        bodyy: JSON.stringify(bodyy),
+        headers: headers
+    })
+    return await response.json()
+}
+
 let priceRes;
 let priceList;
 let div = document.getElementById('res');
@@ -126,11 +143,35 @@ function req() {
         month: chooseMonth
     })
     .then(data => {
-        priceRes = data.price;
+        priceRes = Number(data.price);
         priceList = data.price_list;
         console.log(data);
         div.innerHTML = 'Стоимость расчёта: ' + priceRes;
-        return priceRes;
+        
+        fetch(
+            "../../views/site/a.php", {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": JSON.stringify({
+                    tonnage: chooseTonnage,
+                    raw_types: chooseType,
+                    month: chooseMonth,
+                    price: priceRes
+                })
+            }
+        ).then(function(response) {
+            return response.text();
+        }).then(function(data) {
+            console.log(data);
+        }) 
+        
+            
+       
+        // .then(resp => console.log(resp))
+        // .catch(err => console.log(err))
+
     })
     .catch(err => console.log(err))
 
@@ -146,7 +187,8 @@ function vivod(chooseMonth, chooseTonnage, chooseType, priceRes) {
 }
 
 function newwin(event) {
-    window.location = "../../views/site/oneofhistoryedit.php"
+
+    window.location = "../../views/site/a.php"
 }
 
     

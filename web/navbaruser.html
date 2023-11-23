@@ -9,7 +9,7 @@
     </transition>
     <transition name="fade">
         <ul v-if="show">
-            <li v-for="item in userProfileOptions"> {{ item }} </li>
+            <li v-for="item in userProfileOptions" @click="getVal"> {{ item }} </li>
         </ul>
     </transition>
 </nav>
