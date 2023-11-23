@@ -10,6 +10,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\SignupForm;
+use app\models\User;
 
 use app\models\History;
 
@@ -180,7 +181,9 @@ class SiteController extends Controller
         }
 
         public function actionUsersList() { //страничка с пользователями для админа
-            return $this->render('userslist');
+            $rows = User::find()->all(); //получили массив строк
+
+            return $this->render('userslist', ['rows' => $rows]);
         }
 
         // public function actionAddCalcNote() {
