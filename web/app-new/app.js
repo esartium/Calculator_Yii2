@@ -99,6 +99,26 @@ let priceList;
 let div = document.getElementById('res');
 let divPrice = document.getElementById('resPrList')
 
+document.getElementById('resPrList').style.opacity = 0;
+
+function show(chooseType) {
+    if (chooseType == 'шрот') {
+        document.getElementById('shrot').style.opacity = 1;
+        document.getElementById('zhmih').style.opacity = 0;
+        document.getElementById('soya').style.opacity = 0;
+    } else if (chooseType == 'жмых') {
+        document.getElementById('shrot').style.opacity = 0;
+        document.getElementById('zhmih').style.opacity = 1;
+        document.getElementById('zhmih').style.cssText = "margin-top: -150px";
+        document.getElementById('soya').style.opacity = 0;
+    } else if (chooseType == 'соя') {
+        document.getElementById('shrot').style.opacity = 0;
+        document.getElementById('zhmih').style.opacity = 0;
+        document.getElementById('soya').style.opacity = 1;
+        document.getElementById('soya').style.cssText = "margin-top: -300px";
+    }
+    }
+
 function req() {
     sendCalcRequestF('POST', requestCalcURL, {
         tonnage: chooseTonnage,
@@ -115,25 +135,11 @@ function req() {
     .catch(err => console.log(err))
 
     vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
+    document.getElementById('resPrList').style.opacity = 1;
+    show(chooseType)
 }
 
-function show(chooseType) {
-if (chooseType == 'шрот') {
-    document.getElementById('shrot').style.opacity = 1;
-    document.getElementById('zhmih').style.opacity = 0;
-    document.getElementById('soya').style.opacity = 0;
-} else if (chooseType == 'жмых') {
-    document.getElementById('shrot').style.opacity = 0;
-    document.getElementById('zhmih').style.opacity = 1;
-    document.getElementById('zhmih').style.cssText = "margin-top: -150px";
-    document.getElementById('soya').style.opacity = 0;
-} else if (chooseType == 'соя') {
-    document.getElementById('shrot').style.opacity = 0;
-    document.getElementById('zhmih').style.opacity = 0;
-    document.getElementById('soya').style.opacity = 1;
-    document.getElementById('soya').style.cssText = "margin-top: -300px";
-}
-}
+
 
 function vivod(chooseMonth, chooseTonnage, chooseType, priceRes) {
     console.log("расчет: ", chooseMonth, chooseTonnage, chooseType, priceRes)

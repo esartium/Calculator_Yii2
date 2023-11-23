@@ -85,7 +85,7 @@ class SiteController extends Controller
             return [
                 'access' => [
                     'class' => AccessControl::class,
-                    'only' => ['idx', 'lichniy-cabinet', 'login', 'logout'],
+                    'only' => ['idx', 'lichniy-cabinet', 'login', 'logout', 'users-list'],
                     'rules' => [
                         [
                             'actions' => ['idx'],
@@ -106,6 +106,11 @@ class SiteController extends Controller
                             'actions' => ['login'],
                             'allow' => true,
                             'roles' => ['?'],
+                        ],
+                        [
+                            'actions' => ['users-list'],
+                            'allow' => true,
+                            'roles' => ['admin'],
                         ],
                         
                     ],
@@ -174,12 +179,18 @@ class SiteController extends Controller
             return $this->render('lk');
         }
 
+        public function actionUsersList() { //страничка с пользователями для админа
+            return $this->render('userslist');
+        }
+
         // public function actionAddCalcNote() {
         //     $model = new History();
         //     if ($model->load(Yii::$app->request->post())) {
 
         //     }
         // }
+
+
 }
     
    
