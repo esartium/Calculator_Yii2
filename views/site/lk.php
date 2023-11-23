@@ -16,8 +16,9 @@ if (\Yii::$app->user->can('admin')) {
 
     require_once "../web/navbarguest.html";
 }
+// echo "username:" . Yii::$app->user->identity->username;
 
-require_once "../web/idx.html";
+require_once "../web/idx.php";
 
 echo "lk";
 ?>

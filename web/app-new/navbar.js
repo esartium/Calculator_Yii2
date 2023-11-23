@@ -42,9 +42,8 @@ Vue.createApp({
         } else if (val == 'пользователи') {
             // window.location = '../../views/site/userslist.php'
             window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
-        } else if (val == 'история расчётов') {
-            window.location = '../../views/site/oneofhistoryedit.php'
-        }
+        } 
+        
     }
 }
 }).mount('#megaApp')

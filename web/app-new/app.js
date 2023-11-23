@@ -1,4 +1,11 @@
 
+let username = document.getElementById('php').innerHTML
+function phpname() {
+console.log("username", username)
+}
+
+phpname()
+
 const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
 const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
 const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
@@ -155,6 +162,7 @@ function req() {
                     "Content-Type": "application/json"
                 },
                 "body": JSON.stringify({
+                    username: username,
                     tonnage: chooseTonnage,
                     raw_types: chooseType,
                     month: chooseMonth,
@@ -190,6 +198,7 @@ function newwin(event) {
 
     window.location = "../../views/site/a.php"
 }
+
 
     
 

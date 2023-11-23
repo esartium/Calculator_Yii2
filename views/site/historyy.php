@@ -8,12 +8,10 @@ use yii\grid\gridView;
 
 echo Html::a('создать новую запись', ['addd'], ['class' => 'btn btn-success']);
 
-// if (\Yii::$app->user->can('admin')) {
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [
         'calculation_id',
-        'username',
         'tonnage',
         'month',
         'raw_types',
@@ -34,7 +32,4 @@ echo GridView::widget([
         ]
     ],
 ]);
-// } else if (\Yii::$app->user->can('user')) {
-    
-// }
 ?>

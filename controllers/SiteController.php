@@ -137,7 +137,7 @@ class SiteController extends Controller
     
             $model = new LoginForm();
             if ($model->load(Yii::$app->request->post()) && $model->login()) {
-                return $this->render('lk', []);
+                return $this->render('lk', ['model' => $model]);
             }
     
             $model->password = '';
@@ -237,9 +237,19 @@ class SiteController extends Controller
                 'pagination' => [
                     'pageSize' => 20,
                 ]
-                ]);
+            ]);
 
             return $this->render('history', ['dataProvider' => $dataProvider]);
+        }
+        public function actionHistoryy() { //страничка с пользователями для админа
+            $dataProvider = new ActiveDataProvider([
+                'query' => History::find()->select(['calculation_id', 'month', 'raw_types', 'tonnage', 'price'])->from('history')->where(['username' => Yii::$app->user->identity->username]),
+                'pagination' => [
+                    'pageSize' => 20,
+                ]
+                ]);
+
+            return $this->render('historyy', ['dataProvider' => $dataProvider]);
         }
         public function actionVieww($id) { //просмотр данных конкретного пользователя на отдельной странице (для админа)
             $model = History::findOne($id);
@@ -268,23 +278,6 @@ class SiteController extends Controller
 
             return $this->render('editt', ['model' => $model]);
         }
-
-        // public function actionAdddd() {
-        //     Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
-        //     $request = (object)(Yii::$app->request);
-        //     $model = new History();
-
-        //     $model->month = $request->getBodyParam('month');
-        //     $model->raw_types = $request->getBodyParam('raw_types');
-        //     $model->tonnage = $request->getBodyParam('tonnage');
-        //     $model->price = $request->getBodyParam('price');
-        //     $model->save();
-
-        //     return[
-        //         'a' => var_dump($request),
-        //         'b' => $request->month
-        //     ];
-        // }
         public function actionDeletee($id) {
             $model = History::findOne($id);
 

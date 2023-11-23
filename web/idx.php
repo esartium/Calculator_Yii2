@@ -19,7 +19,7 @@
     </div>
 </div>
 
-   
+<div id="php"><?php echo Yii::$app->user->identity->username ?></div>
 
     <div class="container-fluid"> 
     <div class="row">

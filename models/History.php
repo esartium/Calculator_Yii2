@@ -49,6 +49,7 @@ class History extends \yii\db\ActiveRecord
     {
         return [
             'calculation_id' => 'Calculation ID',
+            'username' => 'Username',
             'tonnage' => 'Tonnage',
             'month' => 'Month',
             'raw_types' => 'Raw Types',
