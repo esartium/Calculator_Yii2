@@ -19,8 +19,6 @@
     </div>
 </div>
 
-<div id="php"><?php echo Yii::$app->user->identity->username ?></div>
-
     <div class="container-fluid"> 
     <div class="row">
         <div class="col-md-12">
@@ -36,8 +34,8 @@
                         <span v-else @click="show1 = !show1" key="select_raw_type">выберите тип сырья:</span>
                     </transition>
                     <transition name="tr">
-                        <ul v-if="show1">
-                            <li onclick="getType(event)" v-for="i in types"> {{ i }} </li>
+                        <ul class="unordered_list" v-if="show1">
+                            <li class="list_item" onclick="getType(event)" v-for="i in types"> {{ i }} </li>
                         </ul>
                     </transition>
                     </div>
@@ -52,8 +50,8 @@
                         <span v-else @click="show2 = !show2" key="select_raw_type">выберите месяц:</span>
                     </transition>
                     <transition name="tr">
-                        <ul v-if="show2">
-                            <li onclick="getMonth(event)" v-for="j in months"> {{ j }} </li>
+                        <ul class="unordered_list" v-if="show2">
+                            <li class="list_item" onclick="getMonth(event)" v-for="j in months"> {{ j }} </li>
                         </ul>
                     </transition>
                     </div>
@@ -66,14 +64,13 @@
                         <span v-else @click="show3 = !show3" key="select_raw_type">выберите тоннаж:</span>
                     </transition>
                     <transition name="tr">
-                        <ul v-if="show3">
-                            <li onclick="getTonnage(event)" v-for="k in tonnages"> {{ k }} </li>
+                        <ul class="unordered_list" v-if="show3">
+                            <li class="list_item" onclick="getTonnage(event)" v-for="k in tonnages"> {{ k }} </li>
                         </ul>
                     </transition>
                     </div>
             </div>
         
-
             <div id="button">
                 <button class="btn btn-success" 
                 onclick="
@@ -257,18 +254,14 @@
                 </transition>
             </div>
 
-        <div>
-            <button id="saveRes" onclick="newwin(event)"> сохранить результат расчёта в историю </button>
-        </div>
-
-
-
         </div>
         
     </div> 
 </div>
     
    </div></div>
+   
+    <div id="php"><?php echo Yii::$app->user->identity->username ?></div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
     <script src="../app-new/selector.js"></script>

@@ -37,12 +37,21 @@ Vue.createApp({
         val = event.target.innerHTML;
         console.log(val);
         // return val;
-        if (val == 'личный кабинет') {
-            window.location = '../../views/site/profile.php'
-        } else if (val == 'пользователи') {
-            // window.location = '../../views/site/userslist.php'
-            window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
-        } 
+        switch(val) {
+            case 'профиль':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/'
+                break;
+            case 'пользователи':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
+                break;
+            case 'выход':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/logout'
+                break;
+            case 'история расчётов':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/history'
+                break;
+        }
+
         
     }
 }

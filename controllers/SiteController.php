@@ -171,13 +171,11 @@ class SiteController extends Controller
             return $this->render('signup', [
                 'model' => $model,
             ]);
-
         }
-    
     
         public function actionIdx()
         {
-            return require_once \Yii::getAlias('@app/web/idx.html');
+            return require_once Yii::getAlias('@app/web/idx.html');
         }
     
         public function actionLichniyCabinet() {

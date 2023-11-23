@@ -9,32 +9,12 @@ use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
 use app\models\LoginForm;
-// use yii\widgets\ActiveForm;
-// use yii\helpers\html;
 
-// $this->title = 'Login';
-// $this->params['breadcrumbs'][] = $this->title;
 ?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin></script>
-</head>
-<body>
-    
-</body>
-</html> -->
 
 <div class="login">
-    <!-- <h1>
-         Html::encode($this->title) 
-    </h1> -->
 
-    <p>Please fill out the following fields to signup:</p>
+    <p>Регистрация</p>
 
     <div class="row">
         <div class="col-lg-5">
@@ -59,7 +39,7 @@ use app\models\LoginForm;
 
             <div class="form-group">
                 <div>
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('Зарегистрироваться', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
             </div>
 
@@ -67,7 +47,8 @@ use app\models\LoginForm;
 
             <div style="color:#999;">
                 <br>Уже есть аккаунт? 
-                <br><strong>Войти</strong> 
+                <br><?= Html::a('Войти', ['login'], ['class' => 'btn btn-primary']) ?>
+                
             </div>
 
         </div>

@@ -16,9 +16,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-
     public $passconfirm;
-
     private $_user = false;
 
     /**
@@ -29,8 +27,7 @@ class SignupForm extends Model
         return [
             // username and password are both required
             [['username', 'email', 'password', 'passconfirm'], 'required'],
-            // rememberMe must be a boolean value
-            // password is validated by validatePassword()
+            ['password', 'match', 'pattern' => '/(?=.*[0-9])/', 'message' => 'Пароль должен содержать минимум одну цифру'],
             // [['password'], 'validatePassword'],
             [['email'], 'email'],
 
@@ -52,60 +49,7 @@ class SignupForm extends Model
             $user = new UserIdentity;
             $user->attributes = $this->attributes;
 
-            
-            // $auth = Yii::$app->authManager;
-            // $userRole = $auth->getRole('user');
-            // $auth->assign($userRole, $user->getId());
-
-
             return $user->create();
         }
     }
-
-    // public function validatePassword($attribute, $params)
-    // {
-    //     if (!$this->hasErrors()) {
-    //         $user = $this->getUser();
-
-    //         if (!$user || !$user->validatePassword($this->password)) {
-    //             $this->addError($attribute, 'Incorrect username or password.');
-    //         }
-    //     }
-    // }
-
-    // public function addUser() {
-    //     $model = new User();
-
-        // $model->insert('user', [
-        //     'username' => $this->username,
-        //     'email' => $this->email,
-        //     'password' => $this->password,
-        // ]);
-    // }
-
-    /**
-     * Logs in a user using the provided username and password.
-     * @return bool whether the user is logged in successfully
-     */
-    // public function login()
-    // {
-    //     if ($this->validate()) {
-    //         return Yii::$app->user->login($this->getUser());
-    //     }
-    //     return false;
-    // }
-
-    /**
-     * Finds user by [[username]]
-     *
-     * @return User|null
-     */
-    // public function getUser()
-    // {
-    //     if ($this->_user === false) {
-    //         $this->_user = User::findByUsername($this->username);
-    //     }
-
-    //     return $this->_user;
-    // }
 }

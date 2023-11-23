@@ -1,7 +1,7 @@
 
 let username = document.getElementById('php').innerHTML
 function phpname() {
-console.log("username", username)
+    console.log("username", username)
 }
 
 phpname()
@@ -198,9 +198,6 @@ function newwin(event) {
 
     window.location = "../../views/site/a.php"
 }
-
-
-    
 
 
 

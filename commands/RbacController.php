@@ -55,9 +55,6 @@ class RbacController extends Controller
         $auth->assign($guest, 3);
         $auth->assign($user, 2);
         $auth->assign($admin, 1);
-
-        // $userRole = $auth->getRole('user');
-        // $auth->assign($userRole, Yii::$app->user->getId());
         
         echo "111";
     }
