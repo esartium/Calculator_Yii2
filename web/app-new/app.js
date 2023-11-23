@@ -145,6 +145,9 @@ function vivod(chooseMonth, chooseTonnage, chooseType, priceRes) {
     console.log("расчет: ", chooseMonth, chooseTonnage, chooseType, priceRes)
 }
 
+function newwin(event) {
+    window.location = "../../views/site/oneofhistoryedit.php"
+}
 
     
 

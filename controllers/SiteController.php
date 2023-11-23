@@ -95,7 +95,7 @@ class SiteController extends Controller
                         [
                             'actions' => ['idx'],
                             'allow' => true,
-                            'roles' => ['?'],
+                            'roles' => ['@'],
                         ],
                         [
                             'actions' => ['lichniy-cabinet'],

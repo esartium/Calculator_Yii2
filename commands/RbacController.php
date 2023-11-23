@@ -4,6 +4,18 @@ namespace app\commands;
 use Yii;
 use yii\console\Controller;
 
+
+
+
+use app\models\CalculatorForm;
+use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
+use yii\web\Response;
+use yii\filters\VerbFilter;
+use app\models\LoginForm;
+use app\models\SignupForm;
+use app\models\User;
+
 class RbacController extends Controller 
 {
     public function actionInit() {
@@ -44,6 +56,9 @@ class RbacController extends Controller
         $auth->assign($user, 2);
         $auth->assign($admin, 1);
 
+        // $userRole = $auth->getRole('user');
+        // $auth->assign($userRole, Yii::$app->user->getId());
+        
         echo "111";
     }
 
