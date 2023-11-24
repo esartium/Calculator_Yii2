@@ -90,7 +90,7 @@ class SiteController extends Controller
             return [
                 'access' => [
                     'class' => AccessControl::class,
-                    'only' => ['login', 'logout', 'users-list', 'idx', 'lichniy-cabinet', 'history', 'profile', 'vieww', 'deletee', 'updatee', 'view', 'delete', 'update', 'editt', 'edit'],
+                    'only' => ['login', 'logout', 'users-list', 'idx', 'lichniy-cabinet', 'history', 'delete', 'update', 'editt', 'edit'],
                     'rules' => [
                         [
                             'actions' => ['idx'],
@@ -122,10 +122,6 @@ class SiteController extends Controller
                             'allow' => true,
                             'roles' => ['user'],
                         ],
-                        [
-
-                        ]
-                        
                     ],
                 ],
                 'verbs' => [
@@ -278,35 +274,13 @@ class SiteController extends Controller
             
             return $this->render('vieww', ['model' => $model]);
         }
-        public function actionUpdatee($id) { //редактирование записи о пользователе (для админа)
-            // как работает сохранение внесённых изменений: нужно сделать проверку, есть ли передаваемый данные, потом загрузить их в модель и вызвать для модели метод сохранения
-
-            $model = History::findOne($id);
-
-            if($model->load(Yii::$app->request->post())) { // Yii::$app->request->post() - это мы получаем из объекта, полученного из пост-запроса то, что было введено в форму; здесь мы проверяем, получили ли мы их
-                $model->save();
-                return $this->redirect(['vieww', 'id' => $model->id]);
-            } 
-
-            return $this->render('editt', ['model' => $model]);
-        }
-        public function actionAddd() {
-            $model = new History();
-
-            if($model->load(Yii::$app->request->post())) { // Yii::$app->request->post() - это мы получаем из объекта, полученного из пост-запроса то, что было введено в форму; здесь мы проверяем, получили ли мы их
-                $model->save();
-                return $this->redirect(['history', 'id' => $model->id]);
-            } 
-
-            return $this->render('editt', ['model' => $model]);
-        }
         public function actionDeletee($id) {
             $model = History::findOne($id);
 
             if($model) {
                 $model->delete();
 
-                return $this->redirect(['history']);
+                return $this->redirect(['lichniy-cabinet']);
             }
         } 
 

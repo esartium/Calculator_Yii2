@@ -20,13 +20,10 @@ echo GridView::widget([
         'raw_types',
         'price',
         ['class' => 'yii\grid\ActionColumn',
-        'template' => '{vieww} {updatee} {deletee}',
+        'template' => '{vieww} {deletee}',
             'buttons' => [
                 'vieww' => function($url, $model, $key) {
                     return Html::a('подробнее', $url);
-                },
-                'updatee' => function($url, $model, $key) {
-                    return Html::a('редактировать запись', $url);
                 },
                 'deletee' => function($url, $model, $key) {
                     return Html::a('удалить запись', $url);
