@@ -16,7 +16,7 @@ Vue.createApp({
             'пользователи',
             'выход'
         ],
-        show5: false,
+        show: false,
         val: ''
    }),
    methods: {

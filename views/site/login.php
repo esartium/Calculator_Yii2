@@ -47,7 +47,6 @@ use app\models\LoginForm;
             <div style="color:#999;">
                 <br> Ещё не зарегистрированы?
                 <br><?= Html::a('Создать аккаунт', ['signup'], ['class' => 'btn btn-primary']) ?>
-                <br><?= Html::a('Продолжить без входа в аккаунт', ['lichniy-cabinet'], ['class' => 'btn btn-primary']) ?>
                 <br> Чтобы использовать калькулятор в гостевом режиме, введите следующие данные: <br><strong>почта: </strong> guest@pochta.pochta <br><strong>пароль:</strong> guest
                 <br> Вам будет доступна функция расчёта стоимости доставки без сохранения результатов.
             </div>

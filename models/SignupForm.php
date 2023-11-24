@@ -28,9 +28,8 @@ class SignupForm extends Model
             // username and password are both required
             [['username', 'email', 'password', 'passconfirm'], 'required'],
             ['password', 'match', 'pattern' => '/(?=.*[0-9])/', 'message' => 'Пароль должен содержать минимум одну цифру'],
-            // [['password'], 'validatePassword'],
+            [['password'], 'validatePassword'],
             [['email'], 'email'],
-
             // указали, что почта должна быть уникальной; и указали, по отношению к какой таблице и к какому полю этой таблицы она должна быть уникальной:
             [['email'], 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email'],
         ];
@@ -43,6 +42,12 @@ class SignupForm extends Model
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
+    public function validatePassword($attribute, $params)
+    {
+        if ($this->password != $this->passconfirm) {
+            $this->addError($attribute, 'пароли не равны');
+        }
+    }
 
     public function signup() {
         if ($this->validate()) {

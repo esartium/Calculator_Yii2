@@ -1,40 +1,40 @@
 
-let username = document.getElementById('php').innerHTML
+let username = document.getElementById('php2').innerHTML
 function phpname() {
     console.log("username", username)
 }
 
 phpname()
 
-const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
-const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
-const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
+// const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
+// const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
+// const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
 
 const requestCalcURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/api/calculate-price'
 
-async function sendGetRequest(method, url) {
-    const response = await fetch(url)
-    return await response.json()
-}
+// async function sendGetRequest(method, url) {
+//     const response = await fetch(url)
+//     return await response.json()
+// }
 
-sendGetRequest('GET', requestMonthURL)
-.then(data => {
-    months = data
-    console.log(months)
-})
-.catch(err => console.log(err))
+// sendGetRequest('GET', requestMonthURL)
+// .then(data => {
+//     months = data
+//     console.log(months)
+// })
+// .catch(err => console.log(err))
 
-sendGetRequest('GET', requestTonnagesURL)
-.then(data => console.log(data))
-.catch(err => console.log(err))
+// sendGetRequest('GET', requestTonnagesURL)
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
 
-sendGetRequest('GET', requestTypesURL)
-.then(data => console.log(data))
-.catch(err => console.log(err))
+// sendGetRequest('GET', requestTypesURL)
+// .then(data => console.log(data))
+// .catch(err => console.log(err))
 
-let chooseType = null;
-let chooseMonth = null;
-let chooseTonnage = null;
+let chooseType;
+let chooseMonth;
+let chooseTonnage;
 
 let body = {
     tonnage: '',
@@ -45,21 +45,18 @@ let body = {
 function getTonnage(event) {
     chooseTonnage = Number(event.target.innerHTML);
     console.log(chooseTonnage);
-    body.tonnage = chooseTonnage;
     document.getElementById('params1').innerHTML = 'выбранный тоннаж: ' + chooseTonnage;
 }
 
 function getType(event) {
     chooseType = event.target.innerHTML;
     console.log(chooseType);
-    body.raw_types = chooseType;
     document.getElementById('params2').innerHTML = 'выбранный тип сырья: ' + chooseType;
     }
 
 function getMonth(event) {
     chooseMonth = event.target.innerHTML;
     console.log(chooseMonth);
-    body.month = chooseMonth;
     document.getElementById('params3').innerHTML = 'выбранный месяц: ' + chooseMonth;
 }
 
@@ -97,12 +94,12 @@ const headers = {
 //                 .then(data => console.log(data))
 //                 .catch(err => console.log(err))
 
-                function echo() {
-                    console.log("body", body)
-                    console.log("JSON.stringify(body)", JSON.stringify(body))
+                // function echo() {
+                //     console.log("body", body)
+                //     console.log("JSON.stringify(body)", JSON.stringify(body))
                     // console.log("body2", body2)
                     // console.log("JSON.stringify(body2)", JSON.stringify(body2))
-                }
+                // }
 
 let bodyy = {
     tonnage: '',
@@ -128,23 +125,23 @@ let divPrice = document.getElementById('resPrList')
 
 document.getElementById('resPrList').style.opacity = 0;
 
-function show(chooseType) {
-    if (chooseType == 'шрот') {
-        document.getElementById('shrot').style.opacity = 1;
-        document.getElementById('zhmih').style.opacity = 0;
-        document.getElementById('soya').style.opacity = 0;
-    } else if (chooseType == 'жмых') {
-        document.getElementById('shrot').style.opacity = 0;
-        document.getElementById('zhmih').style.opacity = 1;
-        document.getElementById('zhmih').style.cssText = "margin-top: -150px";
-        document.getElementById('soya').style.opacity = 0;
-    } else if (chooseType == 'соя') {
-        document.getElementById('shrot').style.opacity = 0;
-        document.getElementById('zhmih').style.opacity = 0;
-        document.getElementById('soya').style.opacity = 1;
-        document.getElementById('soya').style.cssText = "margin-top: -300px";
-    }
-    }
+// function show(chooseType) {
+//     if (chooseType == 'шрот') {
+//         document.getElementById('shrot').style.opacity = 1;
+//         document.getElementById('zhmih').style.opacity = 0;
+//         document.getElementById('soya').style.opacity = 0;
+//     } else if (chooseType == 'жмых') {
+//         document.getElementById('shrot').style.opacity = 0;
+//         document.getElementById('zhmih').style.opacity = 1;
+//         document.getElementById('zhmih').style.cssText = "margin-top: -150px";
+//         document.getElementById('soya').style.opacity = 0;
+//     } else if (chooseType == 'соя') {
+//         document.getElementById('shrot').style.opacity = 0;
+//         document.getElementById('zhmih').style.opacity = 0;
+//         document.getElementById('soya').style.opacity = 1;
+//         document.getElementById('soya').style.cssText = "margin-top: -300px";
+//     }
+    // }
 
 function req() {
     sendCalcRequestF('POST', requestCalcURL, {

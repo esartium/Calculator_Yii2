@@ -181,6 +181,9 @@ class SiteController extends Controller
         public function actionLichniyCabinet() {
             return $this->render('lk');
         }
+        public function actionGuestCabinet() {
+            return $this->render('lkg');
+        }
 
         public function actionUsersList() { //страничка с пользователями для админа
             $dataProvider = new ActiveDataProvider([

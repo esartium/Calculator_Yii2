@@ -268,7 +268,9 @@
     
    </div></div>
    
-    <div id="php2"><?php echo Yii::$app->user->identity->username ?></div>
+    <div id="php2"><?php
+    echo Yii::$app->user->identity->username 
+    ?></div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
     <script src="../app-new/selector.js"></script>
