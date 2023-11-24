@@ -26,12 +26,12 @@ class SignupForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'email', 'password', 'passconfirm'], 'required'],
+            [['username', 'email', 'password', 'passconfirm'], 'required', 'message' => 'Это поле не может быть пустым'],
             ['password', 'match', 'pattern' => '/(?=.*[0-9])/', 'message' => 'Пароль должен содержать минимум одну цифру'],
             [['password'], 'validatePassword'],
-            [['email'], 'email'],
+            [['email'], 'email', 'message' => 'Неверный формат email'],
             // указали, что почта должна быть уникальной; и указали, по отношению к какой таблице и к какому полю этой таблицы она должна быть уникальной:
-            [['email'], 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email'],
+            [['email'], 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email', 'message' => 'Пользователь с таким email уже существует'],
         ];
     }
 
@@ -45,7 +45,7 @@ class SignupForm extends Model
     public function validatePassword($attribute, $params)
     {
         if ($this->password != $this->passconfirm) {
-            $this->addError($attribute, 'пароли не равны');
+            $this->addError($attribute, 'Пароли не совпадают');
         }
     }
 

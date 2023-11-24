@@ -6,6 +6,10 @@ function phpname() {
 
 phpname()
 
+function al() {
+    alert("Здравствуйте, {имя_пользователя}, вы авторизовались в системе расчета стоимости доставки. Теперь все ваши расчеты будут сохранены для последующего просмотра в журнале расчетов (текст “журнале рассчетов” должен отображаться как ссылка на просмотр журнала calculaton/history")
+}
+
 // const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
 // const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
 // const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
@@ -144,6 +148,10 @@ document.getElementById('resPrList').style.opacity = 0;
     // }
 
 function req() {
+    if (chooseMonth == null || chooseTonnage == null || chooseType == null) {
+        alert("заполните все поля")
+    }
+
     sendCalcRequestF('POST', requestCalcURL, {
         tonnage: chooseTonnage,
         raw_types: chooseType,

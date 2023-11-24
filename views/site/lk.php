@@ -23,3 +23,13 @@ if (\Yii::$app->user->can('admin')) {
 
 require_once "../web/idx.php";
 ?>
+
+<!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+    Здравствуйте, 
+    // Yii::$app->user->identity->username 
+    , вы авторизовались в системе расчета стоимости доставки. Теперь все ваши расчеты будут сохранены для последующего просмотра в журнале расчётов
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div> -->
+
