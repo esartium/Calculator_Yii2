@@ -21,8 +21,6 @@ class CalculateController extends \yii\rest\Controller
 
         $request = (object)(Yii::$app->request);
 
-        
-
         $model = new CalculateForm();
 
         // $model->months = $request->months;

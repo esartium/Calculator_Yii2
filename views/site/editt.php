@@ -13,15 +13,15 @@ $form = ActiveForm::begin([
     ],
 ]); ?>
 
-<?= $form->field($model, 'calculation_id')->textInput(['autofocus' => true]) ?>
+<?= $form->field($model, 'calculation_id')->textInput(['autofocus' => true])->label('ID расчёта')  ?>
 
-<?= $form->field($model, 'tonnage')->textInput() ?>
+<?= $form->field($model, 'tonnage')->textInput()->label('Тоннаж')  ?>
 
-<?= $form->field($model, 'month')->textInput() ?>
+<?= $form->field($model, 'month')->textInput()->label('Месяц')  ?>
 
-<?= $form->field($model, 'raw_types')->textInput() ?>
+<?= $form->field($model, 'raw_types')->textInput()->label('Тип сырья')  ?>
 
-<?= $form->field($model, 'price')->textInput() ?>
+<?= $form->field($model, 'price')->textInput()->label('Стоимость доставки')  ?>
 
 <div class="form-group">
     <div>

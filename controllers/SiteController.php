@@ -90,20 +90,20 @@ class SiteController extends Controller
             return [
                 'access' => [
                     'class' => AccessControl::class,
-                    'only' => ['login', 'logout', 'users-list'],
+                    'only' => ['login', 'logout', 'users-list', 'idx', 'lichniy-cabinet', 'history', 'profile', 'vieww', 'deletee', 'updatee', 'view', 'delete', 'update', 'editt', 'edit'],
                     'rules' => [
-                        // [
-                        //     'actions' => ['idx'],
-                        //     'allow' => true,
-                        //     'roles' => [''],
-                        // ],
-                        // [
-                        //     'actions' => ['lichniy-cabinet'],
-                        //     'allow' => true,
-                        //     'roles' => ['*'],
-                        // ],
                         [
-                            'actions' => ['logout'],
+                            'actions' => ['idx'],
+                            'allow' => true,
+                            'roles' => ['@'],
+                        ],
+                        [
+                            'actions' => ['lichniy-cabinet'],
+                            'allow' => true,
+                            'roles' => ['@'],
+                        ],
+                        [
+                            'actions' => ['logout', 'profile'],
                             'allow' => true,
                             'roles' => ['@'],
                         ],
@@ -113,18 +113,23 @@ class SiteController extends Controller
                             'roles' => ['?'],
                         ],
                         [
-                            'actions' => ['users-list'],
+                            'actions' => ['users-list', 'history', 'view', 'delete', 'update', 'edit'],
                             'allow' => true,
                             'roles' => ['admin'],
                         ],
+                        [
+                            'actions' => ['historyy', 'vieww', 'deletee', 'updatee', 'editt'],
+                            'allow' => true,
+                            'roles' => ['user'],
+                        ],
+                        [
+
+                        ]
                         
                     ],
                 ],
                 'verbs' => [
                     'class' => VerbFilter::class,
-                    // 'actions' => [
-                    //     'logout' => ['post'],
-                    // ],
                 ],
             ];
         }

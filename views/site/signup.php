@@ -1,20 +1,12 @@
 <?php
-
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
-
-/** @var app\models\SignupForm $model */
-
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
-
-use app\models\LoginForm;
 
 ?>
 
 <div class="login">
 
-    <p>Регистрация</p>
+    <p><strong>Регистрация</strong></p>
 
     <div class="row">
         <div class="col-lg-5">
@@ -29,13 +21,13 @@ use app\models\LoginForm;
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label('Имя пользователя')  ?>
 
-            <?= $form->field($model, 'email')->textInput() ?>
+            <?= $form->field($model, 'email')->textInput()->label('Почта')  ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'password')->passwordInput()->label('Пароль')  ?>
 
-            <?= $form->field($model, 'passconfirm')->passwordInput() ?>
+            <?= $form->field($model, 'passconfirm')->passwordInput()->label('Повторите пароль')  ?>
 
             <div class="form-group">
                 <div>
@@ -48,6 +40,10 @@ use app\models\LoginForm;
             <div style="color:#999;">
                 <br>Уже есть аккаунт? 
                 <br><?= Html::a('Войти', ['login'], ['class' => 'btn btn-primary']) ?>
+                <br> 
+                <br> Чтобы использовать калькулятор в гостевом режиме, введите следующие данные: <br><strong>почта: </strong> guest@pochta.pochta <br><strong>пароль:</strong> guest1
+                <br> Вам будет доступна функция расчёта стоимости доставки без сохранения результатов.
+            </div>
                 
             </div>
 

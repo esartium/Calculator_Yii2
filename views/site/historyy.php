@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\grid\gridView;
 ?>
 
+<p><strong>История расчётов</strong></p>
+
 <?php 
 
 echo Html::a('<- обратно', ['lichniy-cabinet'], ['class' => 'btn btn-primary']);

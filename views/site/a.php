@@ -1,5 +1,4 @@
 <?php
-use Yii;
 
 if(isset($_POST)) {
 

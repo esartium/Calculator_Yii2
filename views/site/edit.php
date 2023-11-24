@@ -13,11 +13,11 @@ $form = ActiveForm::begin([
     ],
 ]); ?>
 
-<?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+<?= $form->field($model, 'username')->textInput(['autofocus' => true])->label('Имя пользователя')  ?>
 
-<?= $form->field($model, 'email')->textInput() ?>
+<?= $form->field($model, 'email')->textInput()->label('Почта')  ?>
 
-<?= $form->field($model, 'password')->passwordInput() ?>
+<?= $form->field($model, 'password')->passwordInput()->label('Пароль')  ?>
 
 <div class="form-group">
     <div>

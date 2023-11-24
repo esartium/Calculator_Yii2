@@ -6,10 +6,6 @@ function phpname() {
 
 phpname()
 
-function al() {
-    alert("Здравствуйте, {имя_пользователя}, вы авторизовались в системе расчета стоимости доставки. Теперь все ваши расчеты будут сохранены для последующего просмотра в журнале расчетов (текст “журнале рассчетов” должен отображаться как ссылка на просмотр журнала calculaton/history")
-}
-
 // const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
 // const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
 // const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
@@ -88,23 +84,6 @@ const headers = {
         return await response.json()
         }
 
-// const body2 = {
-//     tonnage: 50,
-//     raw_types: "соя",
-//     month: "август"
-// }
-
-// sendCalcRequestF('POST', requestCalcURL, body2)
-//                 .then(data => console.log(data))
-//                 .catch(err => console.log(err))
-
-                // function echo() {
-                //     console.log("body", body)
-                //     console.log("JSON.stringify(body)", JSON.stringify(body))
-                    // console.log("body2", body2)
-                    // console.log("JSON.stringify(body2)", JSON.stringify(body2))
-                // }
-
 let bodyy = {
     tonnage: '',
     raw_types: '',
@@ -112,15 +91,15 @@ let bodyy = {
     price: ''
 }
 
-const requestHistoryURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/adddd'
-async function sendHistoryRequest(method, url, bodyy) {
-    const response = await fetch(url, {
-        method: method,
-        bodyy: JSON.stringify(bodyy),
-        headers: headers
-    })
-    return await response.json()
-}
+// const requestHistoryURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/adddd'
+// async function sendHistoryRequest(method, url, bodyy) {
+//     const response = await fetch(url, {
+//         method: method,
+//         bodyy: JSON.stringify(bodyy),
+//         headers: headers
+//     })
+//     return await response.json()
+// }
 
 let priceRes;
 let priceList;
@@ -174,7 +153,7 @@ function req() {
                     tonnage: chooseTonnage,
                     raw_types: chooseType,
                     month: chooseMonth,
-                    price: priceRes
+                    price: priceRes,
                 })
             }
         ).then(function(response) {

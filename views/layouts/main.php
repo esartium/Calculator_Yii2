@@ -42,7 +42,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Calculator', 'url' => ['/site/calculator']],
-            ['label' => 'Spa', 'url' => ['/spa/index']],
+            // ['label' => 'Spa', 'url' => ['/spa/index']],
             ['label' => 'Final', 'url' => ['/site/signup']],
             // Yii::$app->user->isGuest
             //     ? ['label' => 'Login', 'url' => ['/site/login']]

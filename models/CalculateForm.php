@@ -13,7 +13,7 @@ class CalculateForm extends Model
 
     private function getMonthId(): int
     {
-        $months = Month::findOne(['months' => $this->months]);
+        $months = Month::findOne(['month' => $this->months]);
 
         if (empty($months) === true) {
             throw new NotFoundHttpException("Месяц $this->months не найден в базе");
@@ -79,11 +79,15 @@ class CalculateForm extends Model
     {
         $months = Month::findOne(['id' => $id]);
 
-        if (empty($months) === true) {
-            throw new NotFoundHttpException("Месяц с id $id не найден в базе");
+        foreach($months as &$month) {
+            $month = $month->month;
         }
 
-        return $months->months;
+        // if (empty($months) === true) {
+        //     throw new NotFoundHttpException("Месяц с id $id не найден в базе");
+        // }
+
+        return $month;
     }
 
     private function getTonnageValueById(int $id): int

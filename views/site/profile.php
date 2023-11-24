@@ -6,7 +6,7 @@ use yii\grid\gridView;
 echo Html::a('<- обратно', ['lichniy-cabinet'], ['class' => 'btn btn-primary']);
 ?>
 
-<strong>Профиль</strong>
+<p><strong>Профиль</strong></p>
 
 <?php
 

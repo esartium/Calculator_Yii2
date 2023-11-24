@@ -13,7 +13,7 @@ use app\models\LoginForm;
 
 <div class="login">
 
-    <p>Вход в аккаунт</p>
+    <p><strong>Вход в аккаунт</strong></p>
 
     <div class="row">
         <div class="col-lg-5">
@@ -28,13 +28,13 @@ use app\models\LoginForm;
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'email')->textInput(['autofocus' => true])->label('Почта') ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'password')->passwordInput()->label('Пароль') ?>
 
             <?= $form->field($model, 'rememberMe')->checkbox([
                 'template' => "<div class=\"custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            ]) ?>
+            ])->label('Запомнить меня')  ?>
 
             <div class="form-group">
                 <div>
@@ -47,7 +47,8 @@ use app\models\LoginForm;
             <div style="color:#999;">
                 <br> Ещё не зарегистрированы?
                 <br><?= Html::a('Создать аккаунт', ['signup'], ['class' => 'btn btn-primary']) ?>
-                <br> Чтобы использовать калькулятор в гостевом режиме, введите следующие данные: <br><strong>почта: </strong> guest@pochta.pochta <br><strong>пароль:</strong> guest
+                <br>   
+                <br> Чтобы использовать калькулятор в гостевом режиме, введите следующие данные: <br><strong>почта: </strong> guest@pochta.pochta <br><strong>пароль:</strong> guest1
                 <br> Вам будет доступна функция расчёта стоимости доставки без сохранения результатов.
             </div>
 
