@@ -16,11 +16,10 @@ if (\Yii::$app->user->can('admin')) {
     require_once "../web/navbaruser.php";
 } else {
     // echo "guest";
+    \Yii::$app->user->can('guest');
 
     require_once "../web/navbarguest.html";
 }
 
 require_once "../web/idx.php";
-
-echo "lk";
 ?>

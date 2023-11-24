@@ -45,19 +45,22 @@ let body = {
 function getTonnage(event) {
     chooseTonnage = Number(event.target.innerHTML);
     console.log(chooseTonnage);
-    body.tonnage = chooseTonnage
+    body.tonnage = chooseTonnage;
+    document.getElementById('params1').innerHTML = 'выбранный тоннаж: ' + chooseTonnage;
 }
 
 function getType(event) {
     chooseType = event.target.innerHTML;
     console.log(chooseType);
-    body.raw_types = chooseType
+    body.raw_types = chooseType;
+    document.getElementById('params2').innerHTML = 'выбранный тип сырья: ' + chooseType;
     }
 
 function getMonth(event) {
     chooseMonth = event.target.innerHTML;
     console.log(chooseMonth);
-    body.month = chooseMonth
+    body.month = chooseMonth;
+    document.getElementById('params3').innerHTML = 'выбранный месяц: ' + chooseMonth;
 }
 
 const headers = {
@@ -84,21 +87,21 @@ const headers = {
         return await response.json()
         }
 
-const body2 = {
-    tonnage: 50,
-    raw_types: "соя",
-    month: "август"
-}
+// const body2 = {
+//     tonnage: 50,
+//     raw_types: "соя",
+//     month: "август"
+// }
 
-sendCalcRequestF('POST', requestCalcURL, body2)
-                .then(data => console.log(data))
-                .catch(err => console.log(err))
+// sendCalcRequestF('POST', requestCalcURL, body2)
+//                 .then(data => console.log(data))
+//                 .catch(err => console.log(err))
 
                 function echo() {
                     console.log("body", body)
                     console.log("JSON.stringify(body)", JSON.stringify(body))
-                    console.log("body2", body2)
-                    console.log("JSON.stringify(body2)", JSON.stringify(body2))
+                    // console.log("body2", body2)
+                    // console.log("JSON.stringify(body2)", JSON.stringify(body2))
                 }
 
 let bodyy = {
@@ -153,7 +156,7 @@ function req() {
         priceRes = Number(data.price);
         priceList = data.price_list;
         console.log(data);
-        div.innerHTML = 'Стоимость расчёта: ' + priceRes;
+        div.innerHTML = 'Стоимость доставки: ' + priceRes;
         
         fetch(
             "../../views/site/a.php", {
@@ -174,24 +177,12 @@ function req() {
         }).then(function(data) {
             console.log(data);
         }) 
-        
-            
-       
-        // .then(resp => console.log(resp))
-        // .catch(err => console.log(err))
-
     })
     .catch(err => console.log(err))
 
     vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
     document.getElementById('resPrList').style.opacity = 1;
     show(chooseType)
-}
-
-
-
-function vivod(chooseMonth, chooseTonnage, chooseType, priceRes) {
-    console.log("расчет: ", chooseMonth, chooseTonnage, chooseType, priceRes)
 }
 
 function newwin(event) {

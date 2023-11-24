@@ -1,9 +1,37 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700&subset=latin,cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic');
 
 body {
+    background-color: rgb(0, 0, 0);
+
+    
+    background: linear-gradient(-48deg, rgba(188,206,255,1) 0%, rgba(158,193,255,1) 12%, rgba(126,222,255,1) 24%, rgba(97,255,251,1) 36%, rgba(140,255,211,1) 48%, rgba(157,250,255,1) 60%, rgba(150,203,255,1) 72%, rgba(173,192,255,1) 84%, rgba(196,153,255,1) 96%);
+    background-size: 400% 400%;
+    animation: gradient2 15s ease infinite;
+}
+@keyframes gradient2 {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+#bodynew {
     font-size: 16px;
-    background-color: rgb(229, 250, 194);
+    /* background-color: rgb(229, 250, 194); */
     display: flex;
+    background-color: rgb(0, 0, 0);
+
+    background: linear-gradient(45deg, rgba(144,113,85,1) 0%, rgba(179,88,19,1) 12%, rgba(249,126,32,1) 24%, rgba(249,174,32,1) 36%, rgba(249,239,32,1) 48%, rgba(255,252,180,1) 60%, rgba(193,209,148,1) 72%, rgba(117,126,89,1) 84%, rgba(88,82,68,1) 96%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    
 
     /* выравнивание элементов вдоль главной оси: */
     /* justify-content: center;   */
@@ -12,79 +40,162 @@ body {
     /* align-items: center;
     height: 100vh; */
 }
-            #navv {
-                background: aqua;
-                display: flex;
-            
-                /* расположить элементы вертикально: */
-                flex-direction: column; 
-            
-                justify-content: center;  
-                position: relative;
-                width: 170px;
-                height: 60px;
-            }
-            .unordered_list {
-                align-self: flex-start;
-                background-color: aquamarine;
-                margin: 0;
-                padding: 0;
-                position: absolute;
-                top: 60px;
-                /* width:100%; */
-            }
-            .list_item {
-                align-items: center;
-                color: rgba(35, 177, 229, 0.82);
-                cursor: pointer;
-                display: flex;
-                font-size: 1.5em;
-                height: 2em;
-                justify-content: center;
-                list-style-type: none;
-                text-transform: uppercase;
-                transition: all .5s ease;
-            }
-    .list_item:hover {
-        border-color: rgb(51, 51, 113);
-        color: rgb(159, 159, 195);
-    }
 
-#app {
-    /* margin: 200px; */
-    background-color: rgb(254, 255, 239);
-    height: 500px;
-    width: 70%;
-    border-radius: 10px;
-    margin-top: 200px;
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 #title {
     text-align: center;
+    color: #db9a39;
+    opacity: 0.968;
+    font-family: 'Comfortaa', cursive;
+    text-transform: uppercase;
+    font-size: 36px;
+    padding-top: 11px;
 }
+#title:hover {
+    opacity: 0.985;
+}
+
+            #navv {
+                background: #fcf9f5;
+                text-align: right;
+                width: 90%;
+                height: 65px;
+                top: 76px;
+                position: fixed;
+                left: 5%;
+                right: 5%;
+                font-family: 'Comfortaa', cursive;
+                font-size: 30px;
+                text-transform: uppercase;
+                padding-right: 15px;
+            }
+            #php {
+                float: right;
+                width: 20%;
+                cursor: pointer;
+            }
+            .s {
+                cursor: pointer;
+            }
+
+            .unordered_list {
+                /* align-self: flex-start; */
+                background-color: #db9a39;
+                /* margin: 0;
+                padding: 0;
+                position: absolute; */
+                /* top: 60px; */
+                float: left;
+                margin-left: 1000px;
+                width:20%;
+                text-align: right;
+                font-family: 'Comfortaa', cursive;
+                opacity: 0.8;
+            }
+            .list_item {
+                align-items: center;
+                color: rgb(238, 214, 167);
+                text-shadow: 3px 3px 5px #916525;
+                cursor: pointer;
+                display: flex;
+                font-size: 18px;
+                height: 40px;
+                justify-content: center;
+                list-style-type: none;
+                text-transform: uppercase;
+                transition: all .3s ease;
+                font-family: 'Comfortaa', cursive;
+                opacity: 0.8;
+            }
+    .list_item:hover {
+        text-shadow: 3px 3px 5px #000000;
+        color: #fdff78;
+        font-size: 20px;
+        
+    }
+
+    .ul_selector {
+        /* align-self: flex-start; */
+        background-color: #db9a39;
+        /* margin: 0;
+        padding: 0;
+        position: absolute; */
+        /* top: 60px; */
+        float: center;
+        /* margin-left: 1000px; */
+        width:100%;
+        text-align: right;
+        font-family: 'Comfortaa', cursive;
+        opacity: 0.85;
+    }
+    .li_selector {
+        align-items: center;
+                color: rgb(238, 214, 167);
+                text-shadow: 3px 3px 5px #916525;
+                cursor: pointer;
+                display: flex;
+                font-size: 16px;
+                height: 40px;
+                justify-content: center;
+                list-style-type: none;
+                text-transform: uppercase;
+                transition: all .3s ease;
+                font-family: 'Comfortaa', cursive;
+                opacity: 0.85;
+    }
+    .li_selector:hover {
+        text-shadow: 3px 3px 5px #000000;
+        color: #fdff78;
+        font-size: 23px;
+    }
+
+#app {
+    /* margin: 200px; */
+    background-color: #fff4e6;
+    opacity: 0.84;
+    height: 400px;
+    width: 74%;
+    border-radius: 17px;
+    top: 247px;
+    position: fixed;
+    left: 13%;
+    right: 13%;
+}
+
+
 
 .selector {
     height: 125px;
     margin-top: 10px;
     background-color: bisque;
-    width: 50%;
-}
-
-#selector_one {
-    margin-left: 20px;
+    width: 30%;
+    margin-left: 25px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 27px;
+    text-transform: uppercase;
+    padding-top: 8px;
+    opacity: 0.8;
     float: left;
+    border-radius: 10px;
+}
+.selector:hover {
+    opacity: 0.85;
+    background-color: rgb(242, 219, 191);
 }
 
-#selector_two {
-    margin-left: 220px;
-    float: left;
-}
 
-#selector_sri {
-    float: right;
-    margin-right: 20px;
-    
-}
 
 .js-choice {
     width: 200px;
@@ -102,5 +213,56 @@ body {
 } */
 
 #res {
-    background-color: blue;
+    width: 76%;
+    height: 100px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    text-transform: uppercase;
+    font-size: 23px;
+    margin-left: 10px;
+}
+
+#php2 {
+    opacity: 0;
+}
+
+#params {
+    text-align: left;
+    font-family: 'Comfortaa', cursive;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+#butres {
+    color: black;
+    background-color: #db9a39;
+    position: fixed;
+    top: 560px;
+    right: 280px;
+    border-radius: 60px;
+    width: 120px;
+    height: 120px;
+    border: 7px double black;
+    font-family: 'Comfortaa', cursive;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-align: center;
+    opacity: 0.8;
+}
+#butres:hover {
+    background-color: #d19234;
+    opacity: 0.88;
+}
+#butres:active {
+    background-color: #a17128;
+    opacity: 0.92;
+}
+#list_item_admin {
+    font-size: 15px;
+}
+#list_item_admin:hover {
+    font-size: 18px;
+}
+#unordered_list_admin {
+    margin-left: 1100px;
 }

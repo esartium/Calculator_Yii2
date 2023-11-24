@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
-<body>
+<body id="bodynew">
     <div class="container-fluid"> 
     <div class="row">
         <div class="col-md-12">
@@ -24,18 +24,18 @@
         <div class="col-md-12">
     <div class="container" id="app">
 
-        <div class="card" id="appone">
+        <div id="appone">
             <h1 id="title">калькулятор расчёта стоимости доставки</h1>
             
             <div class="selector" id="selector_one">
                 <div>
                     <transition name="tr" mode="out-in"> 
-                        <span v-if="!show1" @click="show1 = !show1" key="raw_type">тип сырья</span>
-                        <span v-else @click="show1 = !show1" key="select_raw_type">выберите тип сырья:</span>
+                        <span v-if="!show1" @click="show1 = !show1" key="raw_type" class="s">тип сырья</span>
+                        <span v-else @click="show1 = !show1" key="select_raw_type" class="s">выберите тип сырья:</span>
                     </transition>
                     <transition name="tr">
-                        <ul class="unordered_list" v-if="show1">
-                            <li class="list_item" onclick="getType(event)" v-for="i in types"> {{ i }} </li>
+                        <ul class="ul_selector" v-if="show1">
+                            <li class="li_selector" onclick="getType(event)" v-for="i in types"> {{ i }} </li>
                         </ul>
                     </transition>
                     </div>
@@ -46,12 +46,12 @@
             <div class="selector" id="selector_two">
                 <div>
                     <transition name="tr" mode="out-in"> 
-                        <span v-if="!show2" @click="show2 = !show2" key="raw_type">месяц</span>
-                        <span v-else @click="show2 = !show2" key="select_raw_type">выберите месяц:</span>
+                        <span v-if="!show2" @click="show2 = !show2" key="raw_type" class="s">месяц</span>
+                        <span v-else @click="show2 = !show2" key="select_raw_type" class="s">выберите месяц:</span>
                     </transition>
                     <transition name="tr">
-                        <ul class="unordered_list" v-if="show2">
-                            <li class="list_item" onclick="getMonth(event)" v-for="j in months"> {{ j }} </li>
+                        <ul class="ul_selector" v-if="show2">
+                            <li class="li_selector" onclick="getMonth(event)" v-for="j in months"> {{ j }} </li>
                         </ul>
                     </transition>
                     </div>
@@ -60,19 +60,19 @@
             <div class="selector" id="selector_sri">
                 <div>
                     <transition name="tr" mode="out-in"> 
-                        <span v-if="!show3" @click="show3 = !show3" key="raw_type">тоннаж</span>
-                        <span v-else @click="show3 = !show3" key="select_raw_type">выберите тоннаж:</span>
+                        <span v-if="!show3" @click="show3 = !show3" key="raw_type" class="s">тоннаж</span>
+                        <span v-else @click="show3 = !show3" key="select_raw_type" class="s">выберите тоннаж:</span>
                     </transition>
                     <transition name="tr">
-                        <ul class="unordered_list" v-if="show3">
-                            <li class="list_item" onclick="getTonnage(event)" v-for="k in tonnages"> {{ k }} </li>
+                        <ul class="ul_selector" v-if="show3">
+                            <li class="li_selector" onclick="getTonnage(event)" v-for="k in tonnages"> {{ k }} </li>
                         </ul>
                     </transition>
                     </div>
             </div>
         
             <div id="button">
-                <button class="btn btn-success" 
+                <button class="btn" id="butres"
                 onclick="
                 req()
                 "
@@ -81,13 +81,20 @@
             </button>
             </div>
 
+            <div id="params"> 
+                <br><span id="params1"></span>
+                <br><span id="params2"></span>
+                <br><span id="params3"></span>
+
+            </div>
+
             <div id="res">
             </div>
 
-            <div id="resPrList">
+            <!-- <div id="resPrList">
                 <transition name="pr_list" mode="out-in"> 
-                    <span v-if="!show4" @click="show4 = !show4" key="price_list" onclick="show(chooseType)">развернуть прайс-лист</span>
-                    <span v-else @click="show4 = !show4" key="show_price_list">свернуть прайс-лист</span>
+                    <span v-if="!show4" @click="show4 = !show4" key="price_list" onclick="show(chooseType)" class="s">развернуть прайс-лист</span>
+                    <span v-else @click="show4 = !show4" key="show_price_list" class="s">свернуть прайс-лист</span>
                 </transition>
                 <transition name="tr">
                     <div v-if="show4">
@@ -252,7 +259,7 @@
                         </div>
                     </div>
                 </transition>
-            </div>
+            </div> -->
 
         </div>
         
@@ -261,7 +268,7 @@
     
    </div></div>
    
-    <div id="php"><?php echo Yii::$app->user->identity->username ?></div>
+    <div id="php2"><?php echo Yii::$app->user->identity->username ?></div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
     <script src="../app-new/selector.js"></script>

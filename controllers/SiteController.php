@@ -90,18 +90,18 @@ class SiteController extends Controller
             return [
                 'access' => [
                     'class' => AccessControl::class,
-                    'only' => ['idx', 'lichniy-cabinet', 'login', 'logout', 'users-list'],
+                    'only' => ['login', 'logout', 'users-list'],
                     'rules' => [
-                        [
-                            'actions' => ['idx'],
-                            'allow' => true,
-                            'roles' => ['@'],
-                        ],
-                        [
-                            'actions' => ['lichniy-cabinet'],
-                            'allow' => true,
-                            'roles' => ['@'],
-                        ],
+                        // [
+                        //     'actions' => ['idx'],
+                        //     'allow' => true,
+                        //     'roles' => [''],
+                        // ],
+                        // [
+                        //     'actions' => ['lichniy-cabinet'],
+                        //     'allow' => true,
+                        //     'roles' => ['*'],
+                        // ],
                         [
                             'actions' => ['logout'],
                             'allow' => true,
@@ -122,9 +122,9 @@ class SiteController extends Controller
                 ],
                 'verbs' => [
                     'class' => VerbFilter::class,
-                    'actions' => [
-                        'logout' => ['post'],
-                    ],
+                    // 'actions' => [
+                    //     'logout' => ['post'],
+                    // ],
                 ],
             ];
         }
@@ -175,7 +175,7 @@ class SiteController extends Controller
     
         public function actionIdx()
         {
-            return require_once Yii::getAlias('@app/web/idx.html');
+            return require_once Yii::getAlias('@app/web/idx.php');
         }
     
         public function actionLichniyCabinet() {
@@ -186,7 +186,7 @@ class SiteController extends Controller
             $dataProvider = new ActiveDataProvider([
                 'query' => User::find(),
                 'pagination' => [
-                    'pageSize' => 20,
+                    'pageSize' => 8,
                 ]
                 ]);
 
@@ -233,7 +233,7 @@ class SiteController extends Controller
             $dataProvider = new ActiveDataProvider([
                 'query' => History::find(),
                 'pagination' => [
-                    'pageSize' => 20,
+                    'pageSize' => 8,
                 ]
             ]);
 
@@ -243,7 +243,7 @@ class SiteController extends Controller
             $dataProvider = new ActiveDataProvider([
                 'query' => History::find()->select(['calculation_id', 'month', 'raw_types', 'tonnage', 'price'])->from('history')->where(['like', 'username', Yii::$app->user->identity->username]),
                 'pagination' => [
-                    'pageSize' => 20,
+                    'pageSize' => 8,
                 ]
                 ]);
 
