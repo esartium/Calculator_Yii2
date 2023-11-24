@@ -6,7 +6,11 @@ use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
-if (\Yii::$app->user->can('admin')) {
+if (\Yii::$app->user->identity->username == 'guest'){
+    // echo "guest";
+
+    require_once "../web/navbarguest.html";
+} else if (\Yii::$app->user->can('admin')) {
     // echo "admin";
 
     require_once "../web/navbaradmin.php";
@@ -14,12 +18,7 @@ if (\Yii::$app->user->can('admin')) {
     // echo "user";
 
     require_once "../web/navbaruser.php";
-} else {
-    // echo "guest";
-    \Yii::$app->user->can('guest');
-
-    require_once "../web/navbarguest.html";
-}
+} 
 
 require_once "../web/idx.php";
 ?>

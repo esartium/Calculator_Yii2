@@ -6,7 +6,7 @@ use yii\grid\gridView;
 
 <?php 
 
-echo Html::a('создать новую запись', ['addd'], ['class' => 'btn btn-success']);
+echo Html::a('<- обратно', ['lichniy-cabinet'], ['class' => 'btn btn-primary']);
 
 echo GridView::widget([
     'dataProvider' => $dataProvider,

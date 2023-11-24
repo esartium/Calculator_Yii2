@@ -6,6 +6,8 @@ use yii\grid\gridView;
 
 <?php 
 
+echo Html::a('<- обратно', ['lichniy-cabinet'], ['class' => 'btn btn-primary']);
+
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [

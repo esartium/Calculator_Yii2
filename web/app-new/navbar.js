@@ -6,12 +6,12 @@ Vue.createApp({
             'пункт3'
         ],
         userProfileOptions: [
-            'личный кабинет',
+            'профиль',
             'история расчётов',
             'выход'
         ],
         adminProfileOptions: [
-            'личный кабинет',
+            'профиль',
             'история расчётов(админ)',
             'пользователи',
             'выход'
@@ -20,8 +20,6 @@ Vue.createApp({
         val: ''
    }),
    methods: {
-    // сделать тут функцию, которая делает переменную regAuthTitle равной 
-    // либо "регистрация", либо "вход"
 
     goToAuthPage(event) {
         window.location = '../../views/site/login.php'
@@ -29,10 +27,9 @@ Vue.createApp({
     getVal(event) {
         val = event.target.innerHTML;
         console.log(val);
-        // return val;
         switch(val) {
             case 'профиль':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/'
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/profile'
                 break;
             case 'пользователи':
                 window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
@@ -43,16 +40,19 @@ Vue.createApp({
             case 'история расчётов':
                 window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/historyy'
                 break;
+            case 'войти в систему':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/logout'
+                break;
         }
     },
     getVal2(event) {
         val = event.target.innerHTML;
         console.log(val);
-        // return val;
+        
         switch(val) {
-            // case 'профиль':
-            //     window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/'
-            //     break;
+            case 'профиль':
+                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/profile'
+                break;
             case 'пользователи':
                 window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
                 break;
@@ -64,9 +64,6 @@ Vue.createApp({
                 break;
             case 'история расчётов':
                 window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/historyy'
-                break;
-            case 'войти в систему':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/login'
                 break;
         }
     }

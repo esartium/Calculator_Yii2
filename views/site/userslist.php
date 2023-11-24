@@ -10,7 +10,9 @@ use yii\grid\gridView;
 
 <?php 
 
-echo Html::a('создать нового пользователя', ['add'], ['class' => 'btn btn-success']);
+echo Html::a('<- обратно', ['lichniy-cabinet'], ['class' => 'btn btn-primary']);
+
+echo Html::a('создать нового пользователя', ['add'], ['class' => 'btn btn-primary']);
 
 echo GridView::widget([
     'dataProvider' => $dataProvider,
@@ -19,7 +21,7 @@ echo GridView::widget([
         'username',
         'email',
         'password',
-        'register_date',
+        'reqister_date',
         ['class' => 'yii\grid\ActionColumn'] 
     ]
 ]);

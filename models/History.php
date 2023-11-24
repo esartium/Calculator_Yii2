@@ -46,13 +46,13 @@ class History extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'calculation_id' => 'Calculation ID',
-            'username' => 'Username',
-            'tonnage' => 'Tonnage',
-            'month' => 'Month',
-            'raw_types' => 'Raw Types',
-            'price' => 'Price',
-            'created_at' => 'Created At',
+            'calculation_id' => 'ID расчёта',
+            'username' => 'Кто произвёл расчёт',
+            'tonnage' => 'Тоннаж',
+            'month' => 'Месяц',
+            'raw_types' => 'Тип сырья',
+            'price' => 'Стоимость доставки',
+            'created_at' => 'Дата расчёта',
         ];
     }
 }

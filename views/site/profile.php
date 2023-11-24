@@ -1,4 +1,32 @@
 <?php
+use yii\helpers\Html;
 
-echo "profile";
+use yii\grid\gridView;
 
+echo Html::a('<- обратно', ['lichniy-cabinet'], ['class' => 'btn btn-primary']);
+?>
+
+<strong>Профиль</strong>
+
+<?php
+
+echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'columns' => [
+        'id',
+        'username',
+        'email',
+        'password',
+        'reqister_date',
+        ['class' => 'yii\grid\ActionColumn',
+        'template' => '{deleteee}',
+            'buttons' => [
+                'deleteee' => function($url, $model, $key) {
+                    return Html::a('удалить аккаунт', $url);
+                },
+        ] 
+    ]
+]
+]);
+
+?>

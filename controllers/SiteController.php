@@ -181,9 +181,6 @@ class SiteController extends Controller
         public function actionLichniyCabinet() {
             return $this->render('lk');
         }
-        public function actionGuestCabinet() {
-            return $this->render('lkg');
-        }
 
         public function actionUsersList() { //страничка с пользователями для админа
             $dataProvider = new ActiveDataProvider([
@@ -194,6 +191,16 @@ class SiteController extends Controller
                 ]);
 
             return $this->render('userslist', ['dataProvider' => $dataProvider]);
+        }
+        public function actionProfile() { 
+            $dataProvider = new ActiveDataProvider([
+                'query' => User::find()->select(['id', 'username', 'email', 'password', 'reqister_date'])->from('user')->where(['like', 'id', Yii::$app->user->identity->id]),
+                'pagination' => [
+                    'pageSize' => 8,
+                ]
+                ]);
+
+            return $this->render('profile', ['dataProvider' => $dataProvider]);
         }
         public function actionView($id) { //просмотр данных конкретного пользователя на отдельной странице (для админа)
             $model = User::findOne($id);
@@ -229,6 +236,15 @@ class SiteController extends Controller
                 $model->delete();
 
                 return $this->redirect(['users-list']);
+            }
+        } 
+        public function actionDeleteee($id) {
+            $model = User::findOne($id);
+
+            if($model) {
+                $model->delete();
+
+                return $this->redirect(['profile']);
             }
         } 
 

@@ -42,12 +42,13 @@ class User extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password' => 'Password',
-            'auth_key' => 'Auth Key',
-            'access_token' => 'Access Token',
+            'id' => 'ID пользователя',
+            'username' => 'Имя пользователя',
+            'email' => 'Почта',
+            'password' => 'Пароль',
+            'reqister_date' => 'Дата регистрации',
+            'auth_key' => 'Аутентификационный ключ',
+            'access_token' => 'Токен доступа',
         ];
     }
 }
