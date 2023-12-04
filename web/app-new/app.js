@@ -10,7 +10,7 @@ phpname()
 // const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
 // const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
 
-const requestCalcURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/api/calculate-price'
+const requestCalcURL = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/api/calculate-price'
 
 // async function sendGetRequest(method, url) {
 //     const response = await fetch(url)
@@ -160,11 +160,11 @@ function req() {
             return response.text();
         }).then(function(data) {
             console.log(data);
-        }) 
+        })
     })
     .catch(err => console.log(err))
 
-    vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
+    // vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
     document.getElementById('resPrList').style.opacity = 1;
     show(chooseType)
 }
