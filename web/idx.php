@@ -26,7 +26,7 @@
 
         <div id="appone">
             <h1 id="title">калькулятор расчёта стоимости доставки</h1>
-            
+
             <div class="selector" id="selector_one">
                 <div>
                     <transition name="tr" mode="out-in"> 
@@ -34,14 +34,12 @@
                         <span v-else @click="show1 = !show1" key="select_raw_type" class="s">выберите тип сырья:</span>
                     </transition>
                     <transition name="tr">
-                        <ul class="ul_selector" v-if="show1">
-                            <li class="li_selector" onclick="getType(event)" v-for="i in types"> {{ i }} </li>
+                        <ul class="ul_selector" v-if="show1" id="rawTypeUl">
+                            <li class="li_selector" onclick="getType(event)" v-for="i in types" > {{ i }} </li>
                         </ul>
                     </transition>
                     </div>
             </div>
-
-            
 
             <div class="selector" id="selector_two">
                 <div>
