@@ -94,53 +94,53 @@ Vue.createApp({
         document.getElementById('params3').innerHTML = 'выбранный месяц: ' + chooseMonth;
     },
 
-    async sendCalcRequestF(body) {
-        const responseCalc = await fetch(this.requestCalcURL, {
-            method: 'POST',
-            body: JSON.stringify(body),
-            headers: this.headers
-        })
-        return await responseCalc.json()
-        },
+    // async sendCalcRequestF(body) {
+    //     const responseCalc = await fetch(this.requestCalcURL, {
+    //         method: 'POST',
+    //         body: JSON.stringify(body),
+    //         headers: this.headers
+    //     })
+    //     return await responseCalc.json()
+    //     },
 
-    async sendCalcRequest() {
-            this.sendCalcRequestF({
-                tonnage: this.chooseTonnage,
-                raw_types: this.chooseType,
-                month: this.chooseMonth
-            })
-            .then(data => {
-                this.priceRes = Number(data.price);
-                this.priceList = data.price_list;
-                console.log(data);
-                this.div.innerHTML = 'Стоимость доставки: ' + this.priceRes;
+    // async sendCalcRequest() {
+    //         this.sendCalcRequestF({
+    //             tonnage: this.chooseTonnage,
+    //             raw_types: this.chooseType,
+    //             month: this.chooseMonth
+    //         })
+    //         .then(data => {
+    //             this.priceRes = Number(data.price);
+    //             this.priceList = data.price_list;
+    //             console.log(data);
+    //             this.div.innerHTML = 'Стоимость доставки: ' + this.priceRes;
                 
-                fetch(
-                    "../../views/site/a.php", {
-                        "method": "POST",
-                        "headers": {
-                            "Content-Type": "application/json"
-                        },
-                        "body": JSON.stringify({
-                            username: 'username',
-                            tonnage: this.chooseTonnage,
-                            raw_types: this.chooseType,
-                            month: this.chooseMonth,
-                            price:this. priceRes,
-                        })
-                    }
-                ).then(function(response) {
-                    return response.text();
-                }).then(function(data) {
-                    console.log(data);
-                })
-            })
-            .catch(err => console.log(err))
+    //             fetch(
+    //                 "../../views/site/a.php", {
+    //                     "method": "POST",
+    //                     "headers": {
+    //                         "Content-Type": "application/json"
+    //                     },
+    //                     "body": JSON.stringify({
+    //                         username: 'username',
+    //                         tonnage: this.chooseTonnage,
+    //                         raw_types: this.chooseType,
+    //                         month: this.chooseMonth,
+    //                         price:this. priceRes,
+    //                     })
+    //                 }
+    //             ).then(function(response) {
+    //                 return response.text();
+    //             }).then(function(data) {
+    //                 console.log(data);
+    //             })
+    //         })
+    //         .catch(err => console.log(err))
         
-            // vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
-            document.getElementById('resPrList').style.opacity = 1;
-            show(chooseType)
-        }
+    //         // vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
+    //         document.getElementById('resPrList').style.opacity = 1;
+    //         show(chooseType)
+    //     }
     
    },
    async mounted() { 

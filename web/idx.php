@@ -71,8 +71,8 @@
         
             <div id="button">
                 <button class="btn" id="butres"
-                @click="
-                sendCalcRequest
+                onclick="
+                req()
                 "
                 >
                 рассчитать

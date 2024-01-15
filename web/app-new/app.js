@@ -6,11 +6,11 @@ function phpname() {
 
 phpname()
 
-// const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
-// const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
-// const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
+const requestMonthURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/months/months'
+const requestTonnagesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/tonnages/tonnages'
+const requestTypesURL = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/types/types'
 
-// const requestCalcURL = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/api/calculate-price'
+const requestCalcURL = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/api/calculate-price'
 
 // async function sendGetRequest(method, url) {
 //     const response = await fetch(url)
@@ -60,9 +60,9 @@ phpname()
 //     document.getElementById('params3').innerHTML = 'выбранный месяц: ' + chooseMonth;
 // }
 
-// const headers = {
-//     'Content-type': 'application/json'
-// }
+const headers = {
+    'Content-type': 'application/json'
+}
 
 // function sendCalcRequestF(method, url, body) {
 //     return fetch(url, {
@@ -75,14 +75,14 @@ phpname()
 //     })
 //     }
 
-    // async function sendCalcRequestF(method, url, body) {
-    //     const response = await fetch(url, {
-    //         method: method,
-    //         body: JSON.stringify(body),
-    //         headers: headers
-    //     })
-    //     return await response.json()
-    //     }
+    async function sendCalcRequestF(method, url, body) {
+        const response = await fetch(url, {
+            method: method,
+            body: JSON.stringify(body),
+            headers: headers
+        })
+        return await response.json()
+        }
 
 let bodyy = {
     tonnage: '',
@@ -126,44 +126,44 @@ document.getElementById('resPrList').style.opacity = 0;
 //     }
     // }
 
-// function req() {
-//     sendCalcRequestF('POST', requestCalcURL, {
-//         tonnage: chooseTonnage,
-//         raw_types: chooseType,
-//         month: chooseMonth
-//     })
-//     .then(data => {
-//         priceRes = Number(data.price);
-//         priceList = data.price_list;
-//         console.log(data);
-//         div.innerHTML = 'Стоимость доставки: ' + priceRes;
+function req() {
+    sendCalcRequestF('POST', requestCalcURL, {
+        tonnage: chooseTonnage,
+        raw_types: chooseType,
+        month: chooseMonth
+    })
+    .then(data => {
+        priceRes = Number(data.price);
+        priceList = data.price_list;
+        console.log(data);
+        div.innerHTML = 'Стоимость доставки: ' + priceRes;
         
-//         fetch(
-//             "../../views/site/a.php", {
-//                 "method": "POST",
-//                 "headers": {
-//                     "Content-Type": "application/json"
-//                 },
-//                 "body": JSON.stringify({
-//                     username: username,
-//                     tonnage: chooseTonnage,
-//                     raw_types: chooseType,
-//                     month: chooseMonth,
-//                     price: priceRes,
-//                 })
-//             }
-//         ).then(function(response) {
-//             return response.text();
-//         }).then(function(data) {
-//             console.log(data);
-//         })
-//     })
-//     .catch(err => console.log(err))
+        fetch(
+            "../../views/site/a.php", {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": JSON.stringify({
+                    username: username,
+                    tonnage: chooseTonnage,
+                    raw_types: chooseType,
+                    month: chooseMonth,
+                    price: priceRes,
+                })
+            }
+        ).then(function(response) {
+            return response.text();
+        }).then(function(data) {
+            console.log(data);
+        })
+    })
+    .catch(err => console.log(err))
 
-//     // vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
-//     document.getElementById('resPrList').style.opacity = 1;
-//     show(chooseType)
-// }
+    // vivod(chooseMonth, chooseTonnage, chooseType, priceRes)
+    document.getElementById('resPrList').style.opacity = 1;
+    show(chooseType)
+}
 
 function newwin(event) {
 
