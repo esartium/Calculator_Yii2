@@ -35,7 +35,7 @@
                     </transition>
                     <transition name="tr">
                         <ul class="ul_selector" v-if="show1" id="rawTypeUl">
-                            <li class="li_selector" onclick="getType(event)" v-for="i in types" > {{ i }} </li>
+                            <li class="li_selector" @click="getType" v-for="i in types" > {{ i }} </li>
                         </ul>
                     </transition>
                     </div>
@@ -49,7 +49,7 @@
                     </transition>
                     <transition name="tr">
                         <ul class="ul_selector" v-if="show2">
-                            <li class="li_selector" onclick="getMonth(event)" v-for="j in months"> {{ j }} </li>
+                            <li class="li_selector" @click="getMonth" v-for="j in months"> {{ j }} </li>
                         </ul>
                     </transition>
                     </div>
@@ -63,7 +63,7 @@
                     </transition>
                     <transition name="tr">
                         <ul class="ul_selector" v-if="show3">
-                            <li class="li_selector" onclick="getTonnage(event)" v-for="k in tonnages"> {{ k }} </li>
+                            <li class="li_selector" @click="getTonnage" v-for="k in tonnages"> {{ k }} </li>
                         </ul>
                     </transition>
                     </div>
@@ -71,8 +71,8 @@
         
             <div id="button">
                 <button class="btn" id="butres"
-                onclick="
-                req()
+                @click="
+                sendCalcRequest
                 "
                 >
                 рассчитать
