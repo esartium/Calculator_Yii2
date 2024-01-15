@@ -29,19 +29,19 @@ Vue.createApp({
         console.log(val);
         switch(val) {
             case 'профиль':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/profile'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/profile'
                 break;
             case 'пользователи':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/users-list'
                 break;
             case 'выход':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/logout'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/logout'
                 break;
             case 'история расчётов':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/historyy'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/historyy'
                 break;
             case 'войти в систему':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/logout'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/logout'
                 break;
         }
     },
@@ -51,19 +51,19 @@ Vue.createApp({
         
         switch(val) {
             case 'профиль':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/profile'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/profile'
                 break;
             case 'пользователи':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/users-list'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/users-list'
                 break;
             case 'выход':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/logout'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/logout'
                 break;
             case 'история расчётов(админ)':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/history'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/history'
                 break;
             case 'история расчётов':
-                window.location = 'http://localhost:8888/latest_dz_web/calculator-yii2/web/site/historyy'
+                window.location = 'http://localhost:8888/calculator_yii2/Calculator_Yii2/web/site/historyy'
                 break;
         }
     }
